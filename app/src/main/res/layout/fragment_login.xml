@@ -1,14 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorPrimary">
 
+        <TextView
+            android:id="@+id/tvTitleApp"
+            android:transitionName="textApp"
+            style="@style/TitleApp"
+            android:layout_marginTop="50dp"
+            android:text="@string/title_app"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUser"
+            style="@style/TvBackOrange"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="64dp"
+            android:text="@string/tvUser"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleApp" />
+
+        <TextView
+            android:id="@+id/tvPassword"
+            style="@style/TvBackOrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/tvPassword"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@+id/etUser"
+            app:layout_constraintTop_toBottomOf="@+id/etUser" />
+
+        <EditText
+            android:id="@+id/etUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="64dp"
+            style="@style/etLogin"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvUser"
+            app:layout_constraintTop_toBottomOf="@+id/tvUser" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            style="@style/etLogin"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/etUser"
+            app:layout_constraintStart_toStartOf="@+id/tvPassword"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+        <Button
+            android:id="@+id/btLogin"
+            style="@style/btBlack"
+            android:layout_marginTop="64dp"
+            android:text="@string/btLogin"
+            app:layout_constraintEnd_toEndOf="@+id/etPassword"
+            app:layout_constraintStart_toStartOf="@+id/etPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            style="@style/TvBackOrange"
+            android:layout_marginTop="32dp"
+            android:clickable="true"
+            android:text="@string/tvForgotPassword"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/btLogin"
+            app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            style="@style/TvBackOrange"
+            android:layout_marginTop="32dp"
+            android:clickable="true"
+            android:text="@string/tvSignUp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/btLogin"
+            app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

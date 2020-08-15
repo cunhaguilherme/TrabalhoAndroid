@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.signup.SignUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tvTitleSignUp"
+            style="@style/TitleApp"
+            android:layout_width="0dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/title_app"
+            android:textSize="48sp"
+            android:transitionName="textApp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSubTitleSignUp"
+            style="@style/TvBackOrange"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/tvSubTitleSignUp"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleSignUp" />
+
+        <LinearLayout
+            android:id="@+id/containerSignUp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleSignUp"
+            app:layout_constraintStart_toStartOf="@+id/tvSubTitleSignUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp">
+
+            <TextView
+                android:id="@+id/tvNameUser"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvNameUser"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etNameUser"
+                style="@style/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvEmailUser"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/tvEmailUser"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etEmailUser"
+                style="@style/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvPhoneUser"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/tvPhoneUser"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPhoneUser"
+                style="@style/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="phone" />
+
+            <TextView
+                android:id="@+id/tvPasswordUser"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/tvPasswordUser"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPasswordUser"
+                style="@style/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/tvTerms"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/tvTerms"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btSignUp"
+                style="@style/btBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/btSignUp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

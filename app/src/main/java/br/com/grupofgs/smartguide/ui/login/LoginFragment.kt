@@ -1,60 +1,134 @@
 package br.com.grupofgs.smartguide.ui.login
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
 import br.com.grupofgs.smartguide.R
+import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
+import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
+import br.com.grupofgs.smartguide.models.RequestState
+import br.com.grupofgs.smartguide.ui.base.BaseFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class LoginFragment : BaseFragment() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override val layout = R.layout.fragment_login
+
+    private lateinit var tvUser: TextView
+    private lateinit var etUser: EditText
+    private lateinit var tvPassword: TextView
+    private lateinit var etPassword: EditText
+    private lateinit var btLogin: Button
+    private lateinit var tvForgotPassword: TextView
+    private lateinit var tvSignUp: TextView
+
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        sharedElementEnterTransition = TransitionInflater
+            .from(context)
+            .inflateTransition(android.R.transition.move)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpView(view)
+        startLoginAnimation()
+        registerObserver()
+    }
+
+    private fun registerObserver() {
+        this.loginViewModel.loginState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is RequestState.Success -> showSuccess()
+                is RequestState.Error -> showError(it.throwable)
+                is RequestState.Loading -> showLoading("Realizando a autenticação")
+            }
+        })
+
+        this.loginViewModel.resetPasswordState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is RequestState.Success -> {
+                    hideLoading()
+                    showMessage(it.data)
+                }
+                is RequestState.Error -> showError(it.throwable)
+                is RequestState.Loading -> showLoading("Reenviando o e-mail para alteração")
+            }
+        })
+    }
+
+    private fun setUpView(view: View) {
+        tvUser = view.findViewById(R.id.tvUser)
+        etUser = view.findViewById(R.id.etUser)
+        tvPassword = view.findViewById(R.id.tvPassword)
+        etPassword = view.findViewById(R.id.etPassword)
+        btLogin = view.findViewById(R.id.btLogin)
+        tvForgotPassword = view.findViewById(R.id.tvForgotPassword)
+        tvSignUp = view.findViewById(R.id.tvSignUp)
+
+        btLogin.setOnClickListener {
+            loginViewModel.signIn(
+                etUser.text.toString(),
+                etPassword.text.toString()
+            )
+        }
+
+        tvForgotPassword.setOnClickListener {
+            loginViewModel.resetPassword(etUser.text.toString())
+        }
+
+        tvSignUp.setOnClickListener {
+            NavHostFragment.findNavController(this)
+                .navigate(
+                    R.id.action_loginFragment_to_signUpFragment,
+                    null,
+                    null
+                )
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    private fun startLoginAnimation() {
+        val anim = AnimationUtils.loadAnimation(context, R.anim.anim_form_login)
+        tvUser.startAnimation(anim)
+        etUser.startAnimation(anim)
+        tvPassword.startAnimation(anim)
+        etPassword.startAnimation(anim)
+        btLogin.startAnimation(anim)
+        tvForgotPassword.startAnimation(anim)
+        tvSignUp.startAnimation(anim)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun showSuccess() {
+        hideLoading()
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_loginFragment_to_main_nav_graph)
     }
+    private fun showError(t: Throwable) {
+        hideLoading()
+        etUser.error = null
+        etPassword.error = null
+        showMessage("E-mail e/ou senha inválidos. Por favor, verifique e tente novamente.")
+        when (t) {
+            is EmailInvalidException -> {
+                etUser.error = t.message
+                etUser.requestFocus()
+            }
+            is PasswordInvalidException -> {
+                etPassword.error = t.message
+                etPassword.requestFocus()
+            }
+        }
+    }
+
 }

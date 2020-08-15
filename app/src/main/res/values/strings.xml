@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">Smart Guide</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_app">SmartGuide App</string>
+
+    <!-- Tela de Login -->
+    <string name="tvUser">Usuário</string>
+    <string name="tvPassword">Senha</string>
+    <string name="btLogin">Login</string>
+    <string name="tvForgotPassword"><u>Esqueci minha senha</u></string>
+    <string name="tvSignUp"><u>Criar minha conta</u></string>
+    <string name="tvSubTitleSignUp">Preencha os dados da sua conta:</string>
+
+    <!-- Tela de SignUp -->
+    <string name="tvNameUser">Nome:</string>
+    <string name="tvEmailUser">E-mail:</string>
+    <string name="tvPhoneUser">Telefone:</string>
+    <string name="tvPasswordUser">Senha:</string>
+    <string name="tvTerms">Li e aceito os termos de uso</string>
+    <string name="btSignUp">Criar conta</string>
+
 </resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1052337939398",
+    "firebase_url": "https://smartguideapp-b4f8c.firebaseio.com",
+    "project_id": "smartguideapp-b4f8c",
+    "storage_bucket": "smartguideapp-b4f8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052337939398:android:6ea5726ba1defd36d0c8c7",
+        "android_client_info": {
+          "package_name": "br.com.grupofgs.smartguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052337939398-m1c29pnkda9krm2m01ld78uumdc6o99f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.grupofgs.smartguide",
+            "certificate_hash": "1219e3413de87b3d83452097f303848c7c5b0286"
+          }
+        },
+        {
+          "client_id": "1052337939398-c514jbc1duqbbddac1v7tck2hok0gaso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZHvH119kAdtrTOpr-Vv4yFlgQTISHOjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052337939398-c514jbc1duqbbddac1v7tck2hok0gaso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
