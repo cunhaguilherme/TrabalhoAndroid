@@ -19,4 +19,10 @@
     <string name="tvTerms">Li e aceito os termos de uso</string>
     <string name="btSignUp">Criar conta</string>
 
+    <!-- Tela de Home -->
+    <string name="btMaps">MAPA</string>
+    <string name="btContacts">CONTATOS</string>
+    <string name="btAbout">SOBRE</string>
+
+
 </resources>
