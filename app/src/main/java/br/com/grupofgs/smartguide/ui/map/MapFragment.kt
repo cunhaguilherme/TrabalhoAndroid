@@ -18,6 +18,14 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var googleMap: GoogleMap
 
+    override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_map, container, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -32,21 +40,11 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             googleMap = it
         }
 
-        val fiapLatLng = LatLng(-23.5640419,-46.6525289)
+        val fiapLatLng = LatLng(-23.5640419, -46.6525289)
 
         googleMap.addMarker(MarkerOptions().position(fiapLatLng).title("FIAP"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(fiapLatLng))
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo( 19.0f ));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(fiapLatLng, 20.0f));
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false)
-    }
-
 
 
 }
