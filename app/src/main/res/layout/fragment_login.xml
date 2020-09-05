@@ -14,11 +14,11 @@
 
         <TextView
             android:id="@+id/tvTitleApp"
-            android:transitionName="textApp"
             style="@style/TitleApp"
             android:layout_marginTop="50dp"
             android:text="@string/title_app"
             android:textSize="48sp"
+            android:transitionName="textApp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,11 +47,11 @@
 
         <EditText
             android:id="@+id/etUser"
+            style="@style/etLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="64dp"
-            style="@style/etLogin"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,10 +60,10 @@
 
         <EditText
             android:id="@+id/etPassword"
+            style="@style/etLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            style="@style/etLogin"
             android:ems="10"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@+id/etUser"
@@ -82,21 +82,24 @@
         <TextView
             android:id="@+id/tvForgotPassword"
             style="@style/TvBackOrange"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="56dp"
             android:clickable="true"
             android:text="@string/tvForgotPassword"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/btLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
         <TextView
             android:id="@+id/tvSignUp"
             style="@style/TvBackOrange"
-            android:layout_marginTop="32dp"
             android:clickable="true"
             android:text="@string/tvSignUp"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/btLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword"
+            app:layout_constraintVertical_bias="0.52" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
