@@ -67,7 +67,7 @@ class SignUpViewModel : ViewModel() {
             return false
         }
 
-        if (newUser.email?.isValidEmail() == false) {
+        if (newUser.email?.isNotEmpty() == false) {
             signUpState.value = RequestState.Error(EmailInvalidException())
             return false
         }
