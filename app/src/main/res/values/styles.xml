@@ -16,6 +16,15 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="TitleAbout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/title_about</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="TvBackOrange">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
