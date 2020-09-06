@@ -53,5 +53,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
 
     implementation "androidx.fragment:fragment-ktx:1.2.5"
-
+    implementation 'br.com.concrete:canarinho:2.0.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
+    implementation 'com.google.firebase:firebase-config:16.1.0'
+    implementation 'com.google.firebase:firebase-core:17.4.3'
+    implementation 'com.google.firebase:firebase-config-ktx:19.1.4'
+    implementation 'com.google.firebase:firebase-analytics-ktx:17.4.3'
 }
