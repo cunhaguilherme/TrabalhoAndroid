@@ -28,6 +28,7 @@ class SignUpViewModel : ViewModel() {
             .addOnCompleteListener {task ->
                 if (task.isSuccessful) {
                 saveInFirestore(newUser)
+                    sendEmailVerification()
             } else {
                     signUpState.value = RequestState.Error(
                         Throwable(

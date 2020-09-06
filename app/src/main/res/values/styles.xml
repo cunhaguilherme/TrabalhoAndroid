@@ -16,6 +16,15 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="TitleAbout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/title_about</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="TvBackOrange">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -41,6 +50,77 @@
         <item name="android:background">@drawable/rounded_corners</item>"
         <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CompanyDescription">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:fontFamily">@font/amatic_sc_bold</item>
+    <item name="android:text">@string/name_company</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">42sp</item>
+
+
+</style>
+
+    <style name="FilipeMember">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/nameFilipe</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">24sp</item>
+
+
+    </style>
+
+    <style name="FabioMember">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/nameFabio</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">24sp</item>
+
+
+    </style>
+
+    <style name="GabrielMember">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/nameGabriel</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">24sp</item>
+
+
+    </style>
+
+    <style name="GuilhermeMember">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/nameGuilherme</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">24sp</item>
+
+
+    </style>
+
+
+    <style name="VersionDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:text">@string/app_version</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 

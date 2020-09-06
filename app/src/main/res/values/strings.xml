@@ -2,6 +2,7 @@
     <string name="app_name">Smart Guide</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_app">SmartGuide App</string>
+    <string name="title_about">Sobre nós</string>
 
     <!-- Tela de Login -->
     <string name="tvUser">Usuário</string>
@@ -23,6 +24,16 @@
     <string name="btMaps">MAPA</string>
     <string name="btContacts">CONTATOS DE EMERGÊNCIA</string>
     <string name="btAbout">SOBRE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Tela de Sobre Nos -->
+    <string name="name_company">FGs Technology Company © </string>
+    <string name="app_version">app version 1.0.0</string>
+    <string name="nameFilipe">Filipe Cunha</string>
+    <string name="nameFabio">Fabio Asnis</string>
+    <string name="nameGabriel">Gabriel Piva</string>
+    <string name="nameGuilherme">Guilherme Cunha</string>
 
 
 </resources>
