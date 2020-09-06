@@ -87,9 +87,8 @@ class SignUpViewModel : ViewModel() {
             return false
         }
 
-        if (newUser.email?.length ?: 0 < 6) {
-            signUpState.value =
-                RequestState.Error(PasswordInvalidException("Senha com no mínimo 6 caracteres"))
+        if (newUser.password?.length ?: 0 < 6) {
+            signUpState.value = RequestState.Error(PasswordInvalidException("Senha com no mínimo 6 caracteres"))
             return false
         }
 
