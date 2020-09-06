@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
@@ -102,8 +103,9 @@ class SignUpFragment : BaseFragment() {
             when (it) {
                 is RequestState.Success -> {
                     hideLoading()
-                    //NavHostFragment.findNavController(this)
-                        //.navigate(R.id.action_signUpFragment_to_main_nav_graph)
+                    Toast.makeText(this.context, "Voce pivou!", Toast.LENGTH_SHORT).show()
+                    NavHostFragment.findNavController(this)
+                        .navigate(R.id.action_signUpFragment_to_loginFragment)
                 }
                 is RequestState.Error -> {
                     hideLoading()
