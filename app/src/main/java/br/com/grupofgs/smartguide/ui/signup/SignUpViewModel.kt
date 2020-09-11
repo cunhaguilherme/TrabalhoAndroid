@@ -93,6 +93,11 @@ class SignUpViewModel : ViewModel() {
             return false
         }
 
+        if (newUser.terms == false) {
+            signUpState.value = RequestState.Error(Throwable("Os termos de uso devem ser aceitos"))
+            return false
+        }
+
         return true
     }
 }
