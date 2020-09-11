@@ -50,10 +50,9 @@ class SignUpFragment : BaseFragment() {
         etEmailSignUp = view.findViewById(R.id.etEmailUser)
         etPhoneSignUp = view.findViewById(R.id.etPhoneUser)
         etPasswordSignUp = view.findViewById(R.id.etPasswordUser)
-        //cbTermsSignUp = view.findViewById(R.id.cbTerms)
+        cbTermsSignUp = view.findViewById(R.id.cbTerms)
         tvTerms = view.findViewById(R.id.tvTerms)
         btCreateAccount = view.findViewById(R.id.btSignUp)
-        //btLoginSignUp = view.findViewById(R.id.tvTerms)
         setUpListener()
     }
 
@@ -71,20 +70,22 @@ class SignUpFragment : BaseFragment() {
         }
 
         btCreateAccount.setOnClickListener {
+            hideKeyboard()
             val newUser = NewUser(
                 etUserNameSignUp.text.toString(),
                 etEmailSignUp.text.toString(),
                 etPhoneSignUp.text.toString(),
+                checkBoxDone,
                 etPasswordSignUp.text.toString()
             )
             signUpViewModel.signUp(
                 newUser
             )
         }
-        //setUpCheckboxListener()
+        setUpCheckboxListener()
     }
 
-    /*private fun setUpCheckboxListener() {
+    private fun setUpCheckboxListener() {
         cbTermsSignUp.setOnClickListener {
             if (checkBoxDone) {
                 cbTermsSignUp.speed = -1f
@@ -96,14 +97,14 @@ class SignUpFragment : BaseFragment() {
                 checkBoxDone = true
             }
         }
-    }*/
+    }
 
     private fun registerObserver() {
         this.signUpViewModel.signUpState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is RequestState.Success -> {
                     hideLoading()
-                    Toast.makeText(this.context, "Voce pivou!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.context, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
                     NavHostFragment.findNavController(this)
                         .navigate(R.id.action_signUpFragment_to_loginFragment)
                 }
@@ -111,7 +112,7 @@ class SignUpFragment : BaseFragment() {
                     hideLoading()
                     showMessage(it.throwable.message)
                 }
-                is RequestState.Loading -> showLoading("Realizando a autenticação")
+                is RequestState.Loading -> showLoading("Realizando a criação de seu cadastro...")
             }
         })
     }

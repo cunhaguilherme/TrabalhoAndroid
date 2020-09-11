@@ -17,7 +17,7 @@
     <string name="tvEmailUser">E-mail:</string>
     <string name="tvPhoneUser">Telefone:</string>
     <string name="tvPasswordUser">Senha:</string>
-    <string name="tvTerms">Li e aceito os termos de uso</string>
+    <string name="tvTerms"><u>Li e aceito os termos de uso</u></string>
     <string name="btSignUp">Criar conta</string>
 
     <!-- Tela de Home -->
