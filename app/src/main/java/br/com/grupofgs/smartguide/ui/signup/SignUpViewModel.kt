@@ -6,7 +6,6 @@ import br.com.concrete.canarinho.validator.ValidadorTelefone
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
 import br.com.grupofgs.smartguide.extensions.isValidEmail
-import br.com.grupofgs.smartguide.models.NewUser
 import br.com.grupofgs.smartguide.models.RequestState
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,7 +15,7 @@ class SignUpViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
     val signUpState = MutableLiveData<RequestState<FirebaseUser>>()
 
-    fun signUp(newUser: NewUser) {
+    fun signUp(newUser: br.com.gabrielandrepiva.smarguidelib.NewUser) {
 
         signUpState.value = RequestState.Loading
 
@@ -40,7 +39,7 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    private fun saveInFirestore(newUser: NewUser) {
+    private fun saveInFirestore(newUser: br.com.gabrielandrepiva.smarguidelib.NewUser) {
         db.collection("users")
             .document(FirebaseAuth.getInstance().currentUser?.uid!!)
             .set(newUser)
@@ -61,7 +60,7 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    private fun validateFields(newUser: NewUser): Boolean {
+    private fun validateFields(newUser: br.com.gabrielandrepiva.smarguidelib.NewUser): Boolean {
 
         if (newUser.username?.isEmpty() == true) {
             signUpState.value = RequestState.Error(Throwable("Informe o nome do usuário"))

@@ -16,7 +16,6 @@ import br.com.concrete.canarinho.watcher.TelefoneTextWatcher
 import br.com.concrete.canarinho.watcher.evento.EventoDeValidacao
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.extensions.hideKeyboard
-import br.com.grupofgs.smartguide.models.NewUser
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import com.airbnb.lottie.LottieAnimationView
@@ -71,7 +70,7 @@ class SignUpFragment : BaseFragment() {
 
         btCreateAccount.setOnClickListener {
             hideKeyboard()
-            val newUser = NewUser(
+            val newUser = br.com.gabrielandrepiva.smarguidelib.NewUser(
                 etUserNameSignUp.text.toString(),
                 etEmailSignUp.text.toString(),
                 etPhoneSignUp.text.toString(),
