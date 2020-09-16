@@ -35,5 +35,8 @@
     <string name="nameGabriel">Gabriel Piva</string>
     <string name="nameGuilherme">Guilherme Cunha</string>
 
+    <!-- Crashlytics-->
+    <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>
+
 
 </resources>

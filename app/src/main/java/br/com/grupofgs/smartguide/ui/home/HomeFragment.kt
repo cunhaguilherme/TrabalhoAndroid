@@ -1,9 +1,9 @@
 package br.com.grupofgs.smartguide.ui.home
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.transition.TransitionInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import com.crashlytics.android.Crashlytics
 
 class HomeFragment : BaseFragment() {
 
@@ -85,8 +86,8 @@ class HomeFragment : BaseFragment() {
 //    })
 
     }
-}
 
+}
 
 
 

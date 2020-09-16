@@ -2,6 +2,7 @@ package br.com.grupofgs.smartguide.ui.terms
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.ImageView
 import br.com.grupofgs.smartguide.R

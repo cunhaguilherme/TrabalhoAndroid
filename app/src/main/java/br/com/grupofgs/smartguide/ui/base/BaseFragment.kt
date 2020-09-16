@@ -1,6 +1,7 @@
 package br.com.grupofgs.smartguide.ui.base
 
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import br.com.grupofgs.smartguide.BuildConfig
 import br.com.grupofgs.smartguide.R
 
 abstract class BaseFragment : Fragment() {
@@ -15,17 +17,47 @@ abstract class BaseFragment : Fragment() {
     abstract val layout: Int
     private lateinit var loadingView: View
 
+    private lateinit var flavourView: View
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val flavourScreen = inflater.inflate(R.layout.include_flavour, container, false)
+        flavourView = flavourScreen.findViewById(R.id.flavourScreen)
+        configureEnvironment(flavourScreen.findViewById(R.id.tvEnvironment) as TextView)
+
         val screenRootView = FrameLayout(requireContext())
         val screenView = inflater.inflate(layout, container, false)
         loadingView = inflater.inflate(R.layout.include_loading, container, false)
+
         screenRootView.addView(screenView)
         screenRootView.addView(loadingView)
+        screenRootView.addView(flavourView)
+
         return screenRootView
+    }
+
+    private fun configureEnvironment(tvEnvironment: TextView){
+        when (BuildConfig.FLAVOR) {
+            "dev" -> {
+                flavourView.visibility = View.VISIBLE
+                tvEnvironment.text = "DESENVOLVIMENTO"
+            }
+            "hml" -> {
+                flavourView.visibility = View.VISIBLE
+            tvEnvironment.text = "HOMOLOGAÇAO"
+            }
+            "prd" -> {
+                flavourView.visibility = View.GONE
+                tvEnvironment.text = ""
+            }
+        }
+
     }
 
     fun showLoading(message: String = "Processando a requisição") {
