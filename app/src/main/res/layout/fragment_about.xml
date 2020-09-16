@@ -11,7 +11,13 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="65dp"
+            android:layout_height="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/abc_vector_test" />
         <TextView
             android:id="@+id/tvSplash"
             style="@style/TitleAbout"
@@ -27,13 +33,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="210dp"
+            android:layout_height="179dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:src="@mipmap/logo_asset_"
+            android:src="@mipmap/logo_asset_foreground"
             app:layout_constraintBottom_toTopOf="@+id/NameCompany"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
