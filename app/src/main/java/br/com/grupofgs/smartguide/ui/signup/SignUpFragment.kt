@@ -19,6 +19,7 @@ import br.com.grupofgs.smartguide.extensions.hideKeyboard
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import com.airbnb.lottie.LottieAnimationView
+import br.com.gabrielandrepiva.smarguidelib.NewUser
 
 class SignUpFragment : BaseFragment() {
     override val layout = R.layout.fragment_sign_up
@@ -70,7 +71,7 @@ class SignUpFragment : BaseFragment() {
 
         btCreateAccount.setOnClickListener {
             hideKeyboard()
-            val newUser = br.com.gabrielandrepiva.smarguidelib.NewUser(
+            val newUser = NewUser(
                 etUserNameSignUp.text.toString(),
                 etEmailSignUp.text.toString(),
                 etPhoneSignUp.text.toString(),

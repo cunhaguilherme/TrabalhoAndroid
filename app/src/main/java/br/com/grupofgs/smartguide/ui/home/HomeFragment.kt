@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import com.crashlytics.android.Crashlytics
 
 class HomeFragment : BaseFragment() {
 
