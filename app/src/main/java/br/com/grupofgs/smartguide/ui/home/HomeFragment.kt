@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-    private lateinit var btMap: Button
+    private lateinit var btMaps: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,17 +44,17 @@ class HomeFragment : Fragment() {
         } else {
             //Com permissao
             print("Já tem permissao de location")
-            btMap.setVisibility(View.VISIBLE);
+            btMaps.setVisibility(View.VISIBLE);
         }
     }
 
     private fun setUpView(view: View) {
-        btMap = view.findViewById(R.id.btMap)
+        btMaps = view.findViewById(R.id.btMaps)
 
         //Botão de mapa inicia invisivel até usuário dar permissão
-        btMap.setVisibility(View.GONE);
+        btMaps.setVisibility(View.GONE);
 
-        btMap.setOnClickListener {
+        btMaps.setOnClickListener {
             NavHostFragment.findNavController(this)
                     .navigate(
                             R.id.action_homeFragment_to_mapFragment,

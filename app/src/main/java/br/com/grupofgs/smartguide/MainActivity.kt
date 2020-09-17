@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
             if (permissionResult == PackageManager.PERMISSION_GRANTED){
                 if (requestCode == 1) {
                     //Libera botao de mapa na home
-                    val btMap = this.findViewById<Button>(R.id.btMap)
-                    btMap.setVisibility(View.VISIBLE);
+                    val btMaps = this.findViewById<Button>(R.id.btMaps)
+                    btMaps.setVisibility(View.VISIBLE);
                 } else if (requestCode == 2) {
                     //Libera botao de chamada no mapa
                     val btCallHelp = this.findViewById<FloatingActionButton>(R.id.btCallHelp)
