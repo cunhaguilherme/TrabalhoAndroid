@@ -41,8 +41,10 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvTitleSignUp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvSubTitleSignUp"
-            app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp">
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/tvNameUser"
@@ -119,22 +121,36 @@
                 android:ems="10"
                 android:inputType="textPassword" />
 
-            <TextView
-                android:id="@+id/tvTerms"
-                style="@style/TvBackOrange"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/containerTerms"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/tvTerms"
-                android:textSize="20sp" />
+                android:orientation="horizontal">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/cbTerms"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    app:lottie_rawRes="@raw/checkbox" />
+
+                <TextView
+                    android:id="@+id/tvTerms"
+                    style="@style/TvBackOrange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/tvTerms"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btSignUp"
                 style="@style/btBlack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="64dp"
                 android:layout_marginRight="16dp"
                 android:text="@string/btSignUp" />
         </LinearLayout>
