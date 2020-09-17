@@ -19,6 +19,10 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
 
+        <action
+            android:id="@+id/action_homeFragment_to_about_nav_graph"
+            app:destination="@id/about_nav_graph" />
+
     </fragment>
 
     <fragment

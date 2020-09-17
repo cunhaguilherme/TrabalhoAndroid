@@ -11,11 +11,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import androidx.navigation.fragment.NavHostFragment
-import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.NavHostFragment
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.RequestState
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -44,14 +42,9 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpView(view)
+
         startLoginAnimation()
         registerObserver()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setUpView(view)
 
         //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
         if (ContextCompat.checkSelfPermission(this.requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -67,25 +60,11 @@ class HomeFragment : BaseFragment() {
 
     private fun setUpView(view: View) {
         btMaps = view.findViewById(R.id.btMaps)
-
-        //Botão de mapa inicia invisivel até usuário dar permissão
-        btMaps.setVisibility(View.GONE);
-
-        btMaps.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                    .navigate(
-                            R.id.action_homeFragment_to_mapFragment,
-                            null,
-                            null
-                    )
-        }
-    }
-
-    private fun setUpView(view: View) {
-        btMaps = view.findViewById(R.id.btMaps)
         btContacts = view.findViewById(R.id.btContacts)
         btAbout = view.findViewById(R.id.btAbout)
 
+        //Botão de mapa inicia invisivel até usuário dar permissão
+        btMaps.setVisibility(View.GONE);
 
         btAbout.setOnClickListener {
             NavHostFragment.findNavController(this)
@@ -96,6 +75,14 @@ class HomeFragment : BaseFragment() {
                 )
         }
 
+        btMaps.setOnClickListener {
+            NavHostFragment.findNavController(this)
+                    .navigate(
+                            R.id.action_homeFragment_to_mapFragment,
+                            null,
+                            null
+                    )
+        }
 
         }
 
