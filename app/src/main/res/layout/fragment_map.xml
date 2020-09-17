@@ -16,48 +16,65 @@
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="-100dp"
+            tools:layout_editor_absoluteX="-99dp"
             tools:layout_editor_absoluteY="0dp" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:id="@+id/btPathToFIAP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Path to FIAP"
+            android:layout_marginTop="32dp"
             android:backgroundTint="@color/colorPrimary"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:text="FIAP distance"
             android:textColor="#FFFFFF"
-            app:icon="@drawable/ic_location_on_24px" />
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            app:icon="@drawable/ic_location_on_24px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btMyLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="32dp"
+            android:scaleX="2"
+            android:scaleY="2"
             android:src="@drawable/ic_my_location_24px"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:fabSize="auto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:maxImageSize="36dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btCallHelp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="32dp"
+            android:scaleX="2"
+            android:scaleY="2"
             android:src="@drawable/ic_call_warn_24px"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/btShareMap"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toEndOf="@+id/btMyLocation"
+            app:maxImageSize="36dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btShareMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:scaleX="2"
+            android:scaleY="2"
             android:src="@drawable/ic_share_24px"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxImageSize="36dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
