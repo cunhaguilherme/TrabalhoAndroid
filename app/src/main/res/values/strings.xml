@@ -43,6 +43,8 @@
 
     <!-- Crashlytics-->
     <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>
+    <!-- FCM -->
+    <string name="default_notification_channel_id">fcm_default_channel</string>
     <!-- Menu de Navegaçao Inferior -->
     <string name="menu_home_home">Home</string>
     <string name="menu_home_about">Sobre Nós</string>

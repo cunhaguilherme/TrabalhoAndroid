@@ -85,6 +85,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.1'
     implementation 'com.github.GAPvox:SmarGuideLib:5.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
 
     implementation "com.google.android.gms:play-services-maps:17.0.0"
     implementation "com.google.android.gms:play-services-location:15.0.1"
