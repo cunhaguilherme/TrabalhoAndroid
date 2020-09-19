@@ -6,10 +6,10 @@ import br.com.concrete.canarinho.validator.ValidadorTelefone
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
 import br.com.grupofgs.smartguide.extensions.isValidEmail
-import br.com.grupofgs.smartguide.models.NewUser
 import br.com.grupofgs.smartguide.models.RequestState
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
+import br.com.gabrielandrepiva.smarguidelib.NewUser
 
 class SignUpViewModel : ViewModel() {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -40,7 +40,7 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    private fun saveInFirestore(newUser: NewUser) {
+    private fun saveInFirestore(newUser:NewUser) {
         db.collection("users")
             .document(FirebaseAuth.getInstance().currentUser?.uid!!)
             .set(newUser)
@@ -61,7 +61,7 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    private fun validateFields(newUser: NewUser): Boolean {
+    private fun validateFields(newUser:NewUser): Boolean {
 
         if (newUser.username?.isEmpty() == true) {
             signUpState.value = RequestState.Error(Throwable("Informe o nome do usuário"))

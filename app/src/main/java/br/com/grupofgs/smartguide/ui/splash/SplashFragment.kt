@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
 import br.com.grupofgs.smartguide.R
+import br.com.grupofgs.smartguide.utils.firebase.RemoteConfigUtils
 import kotlinx.android.synthetic.main.fragment_splash.*
 
 class SplashFragment : Fragment() {
@@ -36,27 +37,43 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Handler().postDelayed({
 
-            tvSplash = view.findViewById(R.id.tvSplash)
+            setUpView(view)
             startSplashAnimation()
 
-            val extras = FragmentNavigatorExtras(
-                tvSplash to "textApp"
-            )
-            NavHostFragment.findNavController(this)
-                .navigate(
-                             R.id.action_splashFragment_to_login_graph,
-                            null,
-                            null,
-                             extras
-                         )
-        }, 2000)
+            updateRemoteConfig()
+    }
+
+    private fun setUpView(view: View){
+        tvSplash = view.findViewById(R.id.tvSplash)
     }
 
     private fun startSplashAnimation() {
         val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.anim_form_login)
         tvSplash.startAnimation(anim)
+    }
+
+    private fun nextScreen(){
+            val extras = FragmentNavigatorExtras(
+                tvSplash to "textApp"
+            )
+            NavHostFragment.findNavController(this)
+                .navigate(
+                    R.id.action_splashFragment_to_login_graph,
+                    null,
+                    null,
+                    extras
+                )
+    }
+
+
+    private fun updateRemoteConfig() {
+        Handler().postDelayed({
+            RemoteConfigUtils.fetchAndActivate()
+                .addOnCompleteListener {
+                    nextScreen()
+                }
+        }, 2000)
     }
 
 }
