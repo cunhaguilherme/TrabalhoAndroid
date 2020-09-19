@@ -20,6 +20,12 @@
     <string name="tvTerms"><u>Li e aceito os termos de uso</u></string>
     <string name="btSignUp">Criar conta</string>
 
+    <!-- Tela de Update App -->
+    <string name="tvTitleUpdApp">Ops!</string>
+    <string name="tvMessageUpdApp">Você está utilizando uma versão muito antiga do app. Você precisa atualizar para continuar utilizando. </string>
+    <string name="btUpdApp">Atualizar aplicativo</string>
+    <string name="btUpdAppLater">Atualizar depois</string>
+
     <!-- Tela de Home -->
     <string name="btMaps">MAPA</string>
     <string name="btContacts">CONTATOS DE EMERGÊNCIA</string>
@@ -37,6 +43,12 @@
 
     <!-- Crashlytics-->
     <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>
+    <!-- Menu de Navegaçao Inferior -->
+    <string name="menu_home_home">Home</string>
+    <string name="menu_home_about">Sobre Nós</string>
+    <string name="menu_home_map">Mapa</string>
+    <string name="menu_home_contacts">Contatos</string>
+
 
 
 </resources>

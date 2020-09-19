@@ -1,6 +1,7 @@
 package br.com.grupofgs.smartguide.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,12 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import br.com.grupofgs.smartguide.BuildConfig
 import br.com.grupofgs.smartguide.R
+import br.com.grupofgs.smartguide.utils.firebase.RemoteConfigUtils
+import br.com.grupofgs.smartguide.utils.firebase.constants.RemoteConfigKeys
 
 abstract class BaseFragment : Fragment() {
 
@@ -58,6 +63,9 @@ abstract class BaseFragment : Fragment() {
             }
         }
 
+    override fun onResume() {
+        super.onResume()
+        checkMinVersion()
     }
 
     fun showLoading(message: String = "Processando a requisição") {
@@ -71,4 +79,26 @@ abstract class BaseFragment : Fragment() {
     fun showMessage(message: String?) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
+
+    private fun checkMinVersion() {
+        val minVersionApp = RemoteConfigUtils.getFirebaseRemoteConfig()
+            .getLong(RemoteConfigKeys.MIN_VERSION_APP)
+
+        Log.e("Versão mínima Remote: ", minVersionApp.toString())
+        Log.e("Versão Build App: ", BuildConfig.VERSION_CODE.toString())
+
+        if (minVersionApp > BuildConfig.VERSION_CODE) {
+            startUpdateApp()
+        }
+    }
+
+    private fun startUpdateApp() {
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.updateAppFragment, true)
+            .build()
+        findNavController().setGraph(R.navigation.update_app_nav_graph)
+        findNavController().navigate(R.id.updateAppFragment, null, navOptions)
+    }
+
+
 }

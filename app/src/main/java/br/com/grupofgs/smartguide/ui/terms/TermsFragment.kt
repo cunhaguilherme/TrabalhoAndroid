@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ImageView
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.utils.firebase.RemoteConfigUtils
+import br.com.grupofgs.smartguide.utils.firebase.constants.RemoteConfigKeys
 
 
 class TermsFragment : BaseFragment() {
@@ -25,7 +28,29 @@ class TermsFragment : BaseFragment() {
         ivBack.setOnClickListener {
             activity?.onBackPressed()
         }
-        wvTerms.loadUrl("https://smartguideapp-b4f8c.web.app/")
+
+        val termsUrl = RemoteConfigUtils.getFirebaseRemoteConfig()
+            .getString(RemoteConfigKeys.TERMS_URL)
+
+
+        wvTerms.webViewClient = SmartGuideWebViewClients(this)
+        wvTerms.loadUrl(termsUrl)
     }
 
+}
+
+class SmartGuideWebViewClients(private val baseFragment: BaseFragment) : WebViewClient()
+{
+    override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+        view.loadUrl(url)
+        return true
+    }
+    override fun onPageFinished(view: WebView, url: String) {
+        super.onPageFinished(view, url)
+        baseFragment.hideLoading()
+    }
+    init {
+        baseFragment.showLoading()
+    }
+}
 }
