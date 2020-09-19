@@ -59,4 +59,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.4.3'
     implementation 'com.google.firebase:firebase-config-ktx:19.1.4'
     implementation 'com.google.firebase:firebase-analytics-ktx:17.4.3'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
+
 }

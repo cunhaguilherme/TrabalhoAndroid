@@ -16,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
+import br.com.grupofgs.smartguide.extensions.hideKeyboard
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 
@@ -52,7 +53,11 @@ class LoginFragment : BaseFragment() {
             when (it) {
                 is RequestState.Success -> showSuccess()
                 is RequestState.Error -> showError(it.throwable)
-                is RequestState.Loading -> showLoading("Realizando a autenticação")
+                is RequestState.Loading -> {
+                    showLoading("Realizando a autenticação")
+                    hideKeyboard()
+                }
+
             }
         })
 

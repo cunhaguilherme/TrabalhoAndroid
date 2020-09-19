@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.updateapp.UpdateAppFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="128dp"
+            android:layout_marginEnd="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/rocket" />
+
+        <TextView
+            android:id="@+id/tvTitleUpdApp"
+            style="@style/TvBackOrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/tvTitleUpdApp"
+            android:textSize="52sp"
+
+            app:layout_constraintEnd_toEndOf="@+id/animationView"
+            app:layout_constraintStart_toStartOf="@+id/animationView"
+            app:layout_constraintTop_toBottomOf="@+id/animationView" />
+
+        <TextView
+            android:id="@+id/tvMessageUpdApp"
+            style="@style/TvBackOrange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:lines="3"
+            android:text="@string/tvMessageUpdApp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/animationView"
+            app:layout_constraintStart_toStartOf="@+id/animationView"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleUpdApp" />
+
+        <Button
+            android:id="@+id/btUpdApp"
+            style="@style/btBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/btUpdApp"
+            app:layout_constraintEnd_toEndOf="@+id/tvMessageUpdApp"
+            app:layout_constraintStart_toStartOf="@+id/tvMessageUpdApp"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessageUpdApp" />
+
+        <Button
+            android:id="@+id/btUpdAppLater"
+            style="@style/btWhite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/btUpdAppLater"
+            app:layout_constraintEnd_toEndOf="@+id/btUpdApp"
+            app:layout_constraintStart_toStartOf="@+id/btUpdApp"
+            app:layout_constraintTop_toBottomOf="@+id/btUpdApp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

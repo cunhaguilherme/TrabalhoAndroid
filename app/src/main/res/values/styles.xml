@@ -42,12 +42,17 @@
     </style>
 
     <style name="btBlack">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:fontFamily">@font/amatic_sc_bold</item>
-        <item name="android:background">@drawable/rounded_corners</item>"
+        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="btWhite">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/amatic_sc_bold</item>
+        <item name="android:background">@drawable/rounded_corners_white</item>
         <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
     </style>
