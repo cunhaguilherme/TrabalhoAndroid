@@ -53,4 +53,4 @@ class SmartGuideWebViewClients(private val baseFragment: BaseFragment) : WebView
         baseFragment.showLoading()
     }
 }
-}
+

@@ -3,13 +3,8 @@ package br.com.grupofgs.smartguide.ui.home
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.transition.TransitionInflater
 import android.view.View
-import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -22,11 +17,8 @@ import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
-import br.com.grupofgs.smartguide.R
-import br.com.grupofgs.smartguide.models.RequestState
-import kotlinx.android.synthetic.main.fragment_home.*
+import br.com.grupofgs.smartguide.MainActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
-import com.crashlytics.android.Crashlytics
 
 class HomeFragment : BaseFragment() {
 
@@ -40,6 +32,7 @@ class HomeFragment : BaseFragment() {
 
     private lateinit var tvHomeHelloUser: TextView
     private lateinit var rvHomeDashboard: RecyclerView
+    private var permissionMap: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,21 +44,22 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpView(view)
-        homeViewModel.createMenu()
-        //startLoginAnimation()
-        registerObserver()
 
         //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
         if (ContextCompat.checkSelfPermission(this.requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //Sem permissão
             print("Não tem permissao de location, entao solicita")
             ActivityCompat.requestPermissions(this.requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+            permissionMap = (activity as MainActivity).permissionGps
         } else {
             //Com permissao
             print("Já tem permissao de location")
-            btMaps.setVisibility(View.VISIBLE);
+            permissionMap = true
         }
+
+        setUpView(view)
+        homeViewModel.createMenu()
+        registerObserver()
     }
 
     private fun setUpView(view: View) {
@@ -85,14 +79,14 @@ class HomeFragment : BaseFragment() {
         }*/
     }
 
-        btMaps.setOnClickListener {
+       /* btMaps.setOnClickListener {
             NavHostFragment.findNavController(this)
                     .navigate(
                             R.id.action_homeFragment_to_mapFragment,
                             null,
                             null
                     )
-        }
+        }*/
 
     /*private fun startLoginAnimation() {
         val anim = AnimationUtils.loadAnimation(context, R.anim.anim_form_login)
@@ -149,7 +143,8 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setUpMenu(items: List<DashboardItem>) {
-        rvHomeDashboard.adapter = HomeListAdapter(items, this::clickItem)
+
+        rvHomeDashboard.adapter = HomeListAdapter(permissionMap, items, this::clickItem)
     }
 
     private fun clickItem(item: DashboardItem) {
@@ -167,7 +162,7 @@ class HomeFragment : BaseFragment() {
                     showMessage(item.feature)
                     NavHostFragment.findNavController(this)
                         .navigate(
-                            R.id.action_homeFragment_to_about_nav_graph,
+                            R.id.action_homeFragment_to_mapFragment,
                             null,
                             null
                         )

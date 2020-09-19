@@ -24,8 +24,6 @@ abstract class BaseFragment : Fragment() {
 
     private lateinit var flavourView: View
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,7 +45,7 @@ abstract class BaseFragment : Fragment() {
         return screenRootView
     }
 
-    private fun configureEnvironment(tvEnvironment: TextView){
+    private fun configureEnvironment(tvEnvironment: TextView) {
         when (BuildConfig.FLAVOR) {
             "dev" -> {
                 flavourView.visibility = View.VISIBLE
@@ -55,13 +53,14 @@ abstract class BaseFragment : Fragment() {
             }
             "hml" -> {
                 flavourView.visibility = View.VISIBLE
-            tvEnvironment.text = "HOMOLOGAÇAO"
+                tvEnvironment.text = "HOMOLOGAÇAO"
             }
             "prd" -> {
                 flavourView.visibility = View.GONE
                 tvEnvironment.text = ""
             }
         }
+    }
 
     override fun onResume() {
         super.onResume()
@@ -70,12 +69,14 @@ abstract class BaseFragment : Fragment() {
 
     fun showLoading(message: String = "Processando a requisição") {
         loadingView.visibility = View.VISIBLE
-        if (message.isNotEmpty())
-            loadingView.findViewById<TextView>(R.id.tvLoading).text = message
+            if (message.isNotEmpty())
+                loadingView.findViewById<TextView>(R.id.tvLoading).text = message
     }
+
     fun hideLoading() {
         loadingView.visibility = View.GONE
     }
+
     fun showMessage(message: String?) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
@@ -99,6 +100,4 @@ abstract class BaseFragment : Fragment() {
         findNavController().setGraph(R.navigation.update_app_nav_graph)
         findNavController().navigate(R.id.updateAppFragment, null, navOptions)
     }
-
-
 }

@@ -58,7 +58,7 @@
             android:id="@+id/nvHome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
             android:backgroundTint="@color/colorPrimaryDark"
             android:foregroundGravity="center|center_horizontal"
             android:paddingTop="5dp"
