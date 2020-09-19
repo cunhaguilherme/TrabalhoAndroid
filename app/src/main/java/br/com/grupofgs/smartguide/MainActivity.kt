@@ -7,12 +7,17 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
+import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardMenu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
+//import com.crashlytics.android.Crashlytics
+//import io.fabric.sdk.android.Fabric
 
 
 class MainActivity : AppCompatActivity() {
+
+    var permissionGps: Boolean = false;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         fullScreen()
@@ -40,8 +45,7 @@ class MainActivity : AppCompatActivity() {
             if (permissionResult == PackageManager.PERMISSION_GRANTED){
                 if (requestCode == 1) {
                     //Libera botao de mapa na home
-                    val btMaps = this.findViewById<Button>(R.id.btMaps)
-                    btMaps.setVisibility(View.VISIBLE);
+                    permissionGps = true;
                 } else if (requestCode == 2) {
                     //Libera botao de chamada no mapa
                     val btCallHelp = this.findViewById<FloatingActionButton>(R.id.btCallHelp)
