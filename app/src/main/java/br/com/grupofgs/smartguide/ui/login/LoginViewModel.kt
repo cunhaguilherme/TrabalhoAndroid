@@ -6,7 +6,7 @@ import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.SmartGuidApplication
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
-import br.com.grupofgs.smartguide.extensions.isValidEmail
+import br.com.gabrielandrepiva.smarguidelib.isValidEmail
 import br.com.grupofgs.smartguide.models.RequestState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

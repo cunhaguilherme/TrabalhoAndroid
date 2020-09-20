@@ -57,6 +57,19 @@
     <string name="nameGabriel">Gabriel Piva</string>
     <string name="nameGuilherme">Guilherme Cunha</string>
 
+    <!-- Tela de Contatos -->
+    <string name="title_screen_contact">Contatos </string>
+
+    <!-- Tela Cadastro de  Contatos -->
+    <string name="title_screen_add_ontact">Adicionar Contato </string>
+    <string name="btAddContact">Criar contato</string>
+    <string name="tvSubTitleAddContact">Preencha os dados do contato de emergência:</string>
+
+    <!-- Tela Editar Contatos -->
+    <string name="title_screen_edit_ontact">Editar Contato </string>
+    <string name="btEditContact">Salvar alterações</string>
+    <string name="tvSubTitleEditContact">Edite os dados do contato de emergência:</string>
+
     <!-- Crashlytics-->
     <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>
     <!-- FCM -->
