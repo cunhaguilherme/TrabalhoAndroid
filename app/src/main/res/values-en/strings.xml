@@ -4,6 +4,9 @@
     <string name="title_about">About Us</string>
     <string name="loading">Processing requisition</string>
 
+    <!-- EmailInvalidException -->
+    <string name="emailExInvalid">Invalid E-mail</string>
+
     <!-- Tela de Login -->
     <string name="tvUser">User</string>
     <string name="tvPassword">Password</string>
@@ -26,9 +29,18 @@
     <string name="tvPasswordUser">Password:</string>
     <string name="tvTerms"><u>I have read and agree with all terms</u></string>
     <string name="btSignUp">Create account</string>
+    <string name="signUpSucess">Account successful created!</string>
+    <string name="signUpAction">Creating your account...</string>
+    <string name="signUpErrorRequisition">It was not possible to complete the requisition</string>
+    <string name="signUpErrorUserNameEmpty">Please, inform the user name</string>
+    <string name="signUpErrorPhoneEmpty">Please, inform the user phone</string>
+    <string name="signUpErrorPhoneInvalid">Please, inform a valid phone number</string>
+    <string name="signUpErrorPwdEmpty">Please, inform the password</string>
+    <string name="signUpErrorPwdLength">Password length must have at least 6 characters</string>
+    <string name="signUpErrorTerms">You must accept the terms to signUp</string>
 
     <!-- Tela de Update App -->
-    <string name="tvTitleUpdApp">Ops!</string>
+    <string name="tvTitleUpdApp">Oops!</string>
     <string name="tvMessageUpdApp">You are using an old version of the App. You need to update it to keep using.</string>
     <string name="btUpdApp">Update App</string>
     <string name="btUpdAppLater">Update later</string>
@@ -56,6 +68,19 @@
     <string name="nameFabio">Fabio Asnis</string>
     <string name="nameGabriel">Gabriel Piva</string>
     <string name="nameGuilherme">Guilherme Cunha</string>
+
+    <!-- Tela de Contatos -->
+    <string name="title_screen_contact">Contacts</string>
+
+    <!-- Tela Cadastro de Contatos -->
+    <string name="title_screen_add_ontact">Add Contacts</string>
+    <string name="btAddContact">Create contact</string>
+    <string name="tvSubTitleAddContact">Insert all emergency contact info:</string>
+
+    <!-- Tela Editar Contatos -->
+    <string name="title_screen_edit_ontact">Edit contact</string>
+    <string name="btEditContact">Save updated info</string>
+    <string name="tvSubTitleEditContact">Edit info of emergency contact:</string>
 
     <!-- Crashlytics-->
     <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>

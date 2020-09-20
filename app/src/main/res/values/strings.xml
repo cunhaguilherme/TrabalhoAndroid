@@ -4,6 +4,9 @@
     <string name="title_about">Sobre nós</string>
     <string name="loading">Processando a requisição</string>
 
+    <!-- EmailInvalidException -->
+    <string name="emailExInvalid">E-mail inválido</string>
+
     <!-- Tela de Login -->
     <string name="tvUser">Usuário</string>
     <string name="tvPassword">Senha</string>
@@ -26,6 +29,15 @@
     <string name="tvPasswordUser">Senha:</string>
     <string name="tvTerms"><u>Li e aceito os termos de uso</u></string>
     <string name="btSignUp">Criar conta</string>
+    <string name="signUpSucess">Cadastro realizado com sucesso!</string>
+    <string name="signUpAction">Realizando a criação de seu cadastro...</string>
+    <string name="signUpErrorRequisition">Não foi possível realizar a requisição</string>
+    <string name="signUpErrorUserNameEmpty">Informe o nome do usuário</string>
+    <string name="signUpErrorPhoneEmpty">Informe o telefone do usuário</string>
+    <string name="signUpErrorPhoneInvalid">Informe um telefone válido</string>
+    <string name="signUpErrorPwdEmpty">Informe uma senha</string>
+    <string name="signUpErrorPwdLength">Senha com no mínimo 6 caracteres</string>
+    <string name="signUpErrorTerms">Os termos de uso devem ser aceitos</string>
 
     <!-- Tela de Update App -->
     <string name="tvTitleUpdApp">Ops!</string>
@@ -58,15 +70,15 @@
     <string name="nameGuilherme">Guilherme Cunha</string>
 
     <!-- Tela de Contatos -->
-    <string name="title_screen_contact">Contatos </string>
+    <string name="title_screen_contact">Contatos</string>
 
     <!-- Tela Cadastro de  Contatos -->
-    <string name="title_screen_add_ontact">Adicionar Contato </string>
+    <string name="title_screen_add_ontact">Adicionar Contato</string>
     <string name="btAddContact">Criar contato</string>
     <string name="tvSubTitleAddContact">Preencha os dados do contato de emergência:</string>
 
     <!-- Tela Editar Contatos -->
-    <string name="title_screen_edit_ontact">Editar Contato </string>
+    <string name="title_screen_edit_ontact">Editar Contato</string>
     <string name="btEditContact">Salvar alterações</string>
     <string name="tvSubTitleEditContact">Edite os dados do contato de emergência:</string>
 
