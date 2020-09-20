@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
@@ -19,6 +20,9 @@ import kotlinx.android.synthetic.main.fragment_splash.*
 class SplashFragment : Fragment() {
 
     private lateinit var tvSplash: TextView
+    private lateinit var ivSplash: ImageView
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +50,13 @@ class SplashFragment : Fragment() {
 
     private fun setUpView(view: View){
         tvSplash = view.findViewById(R.id.tvSplash)
+        ivSplash = view.findViewById(R.id.ivSplash)
     }
 
     private fun startSplashAnimation() {
         val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.anim_form_login)
         tvSplash.startAnimation(anim)
+        ivSplash.startAnimation(anim)
     }
 
     private fun nextScreen(){

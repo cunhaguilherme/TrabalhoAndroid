@@ -24,6 +24,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/ivSplash"
+            android:layout_width="248dp"
+            android:layout_height="254dp"
+            android:src="@mipmap/logo_asset_foreground"
+            app:layout_constraintEnd_toEndOf="@+id/tvSplash"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="@+id/tvSplash"
+            app:layout_constraintTop_toBottomOf="@+id/tvSplash" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
