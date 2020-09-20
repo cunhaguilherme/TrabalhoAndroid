@@ -2,6 +2,7 @@
     <string name="app_name">Smart Guide</string>
     <string name="title_app">SmartGuide App</string>
     <string name="title_about">Sobre nós</string>
+    <string name="loading">Processando a requisição</string>
 
     <!-- Tela de Login -->
     <string name="tvUser">Usuário</string>
@@ -10,6 +11,13 @@
     <string name="tvForgotPassword"><u>Esqueci minha senha</u></string>
     <string name="tvSignUp"><u>Criar minha conta</u></string>
     <string name="tvSubTitleSignUp">Preencha os dados da sua conta:</string>
+    <string name="loginLoadingAuth">Realizando a autenticação</string>
+    <string name="loginLoadingSendEmail">Reenviando o e-mail para alteração</string>
+    <string name="loginInvalidTryAgain">E-mail e/ou senha inválidos. Por favor, verifique e tente novamente.</string>
+    <string name="loginErrorRequisition">Não foi possível realizar a requisição</string>
+    <string name="loginErrorPwdEmpty">Informe uma senha</string>
+    <string name="loginErrorPwdLength">Senha com no mínimo 6 caracteres</string>
+    <string name="loginPwdCheckEmail">Verifique sua caixa de e-mail</string>
 
     <!-- Tela de SignUp -->
     <string name="tvNameUser">Nome:</string>
@@ -26,6 +34,9 @@
     <string name="btUpdAppLater">Atualizar depois</string>
 
     <!-- Tela de Home -->
+    <string name="homeLoading">Carregando...</string>
+    <string name="homeWelcome">Bem-vindo</string>
+    <string name="logoutSucess">Logout efetuado com sucesso</string>
     <string name="btMaps">MAPA</string>
     <string name="btContacts">CONTATOS DE EMERGÊNCIA</string>
     <string name="btAbout">SOBRE</string>
@@ -33,6 +44,10 @@
 
     <!-- Tela de Mapa -->
     <string name="btPathToFIAP">Distância FIAP</string>
+    <string name="myCurrentLocationTitle">Eu</string>
+    <string name="myCurrentLocationSnippet">Minha localização atual</string>
+    <string name="fiapLocationSnippet">Nossa escola do coração</string>
+    <string name="shareLocationTitle">Compartilhar local atual via:</string>
 
     <!-- Tela de Sobre Nos -->
     <string name="name_company">FGs Technology Company © </string>

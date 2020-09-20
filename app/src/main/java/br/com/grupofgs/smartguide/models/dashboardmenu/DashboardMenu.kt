@@ -4,6 +4,7 @@ import android.content.Context
 
 data class DashboardMenu(
     val title: String,
+    val title_en: String,
     val subTitle: String,
     val items: List<DashboardItem>
 )

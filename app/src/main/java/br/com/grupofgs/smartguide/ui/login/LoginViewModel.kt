@@ -2,6 +2,8 @@ package br.com.grupofgs.smartguide.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.grupofgs.smartguide.R
+import br.com.grupofgs.smartguide.SmartGuidApplication
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
 import br.com.grupofgs.smartguide.extensions.isValidEmail
@@ -30,7 +32,7 @@ class LoginViewModel : ViewModel() {
                     } else {
                         loginState.value = RequestState.Error(
                             Throwable(
-                                task.exception?.message ?: "Não foi possível realizar a requisição"
+                                task.exception?.message ?: SmartGuidApplication.context?.resources?.getString(R.string.loginErrorRequisition)
                             )
                         )
                     }
@@ -44,12 +46,12 @@ class LoginViewModel : ViewModel() {
             return false
         }
         if (password.isEmpty()) {
-            loginState.value = RequestState.Error(PasswordInvalidException("Informe uma senha"))
+            loginState.value = RequestState.Error(PasswordInvalidException(SmartGuidApplication.context?.resources?.getString(R.string.loginErrorPwdEmpty)!!))
             return false
         }
         if (email.length < 6) {
             loginState.value =
-                RequestState.Error(PasswordInvalidException("Senha com no mínimo 6 caracteres"))
+                RequestState.Error(PasswordInvalidException(SmartGuidApplication.context?.resources?.getString(R.string.loginErrorPwdLength)!!))
             return false
         }
         return true
@@ -63,11 +65,11 @@ class LoginViewModel : ViewModel() {
             FirebaseAuth.getInstance().sendPasswordResetEmail(email)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        resetPasswordState.value = RequestState.Success("Verifique sua caixa de e-mail")
+                        resetPasswordState.value = RequestState.Success(SmartGuidApplication.context?.resources?.getString(R.string.loginPwdCheckEmail)!!)
                     } else {
                         resetPasswordState.value = RequestState.Error(
                             Throwable(
-                                task.exception?.message ?: "Não foi possível realizar a requisição"
+                                task.exception?.message ?: SmartGuidApplication.context?.resources?.getString(R.string.loginErrorRequisition)
                             )
                         )
                     }

@@ -67,7 +67,7 @@ abstract class BaseFragment : Fragment() {
         checkMinVersion()
     }
 
-    fun showLoading(message: String = "Processando a requisição") {
+    fun showLoading(message: String = getString(R.string.loading)) {
         loadingView.visibility = View.VISIBLE
             if (message.isNotEmpty())
                 loadingView.findViewById<TextView>(R.id.tvLoading).text = message

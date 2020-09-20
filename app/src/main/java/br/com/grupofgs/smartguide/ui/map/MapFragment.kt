@@ -91,7 +91,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         btMyLocation.setOnClickListener {
             googleMap.clear()
             //Centraliza na localização atual
-            centreMapOnLocation(myLocation, "Eu", "Minha localização atual")
+            centreMapOnLocation(myLocation, getString(R.string.myCurrentLocationTitle), getString(R.string.myCurrentLocationSnippet))
         }
 
         btPathToFIAP.setOnClickListener {
@@ -107,13 +107,13 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
 
         btShareMap.setOnClickListener {
-            val msgText = "Minha localização atual é: " + myLocation.toString()
+            val msgText = getString(R.string.myCurrentLocationSnippet) + " - " + myLocation.toString()
 
             val intent= Intent()
             intent.action=Intent.ACTION_SEND
             intent.putExtra(Intent.EXTRA_TEXT,msgText)
             intent.type="text/plain"
-            startActivity(Intent.createChooser(intent,"Compartilhar local atual via:"))
+            startActivity(Intent.createChooser(intent,getString(R.string.shareLocationTitle)))
         }
     }
 
@@ -152,15 +152,15 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         //Adiciona pin da Origem
         googleMap.addMarker(MarkerOptions()
                 .position(originLatLng)
-                .title("Eu")
-                .snippet("Localização atual"))
+                .title(getString(R.string.myCurrentLocationTitle))
+                .snippet(getString(R.string.myCurrentLocationSnippet)))
                 .showInfoWindow()
 
         //Adiciona pin da FIAP
         googleMap.addMarker(MarkerOptions()
                 .position(fiapLatLng)
                 .title("FIAP")
-                .snippet("Nossa escola do coração"))
+                .snippet(getString(R.string.fiapLocationSnippet)))
                 .showInfoWindow()
 
         val polylineOptions = PolylineOptions()
@@ -195,7 +195,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
                 //Inicia mapa exibindo local atual
                 if (!myLocationFirstTime) {
-                    centreMapOnLocation(myLocation, "Eu", "Minha localização atual")
+                    centreMapOnLocation(myLocation, getString(R.string.myCurrentLocationTitle), getString(R.string.myCurrentLocationSnippet))
                     myLocationFirstTime = true
                 }
             }
