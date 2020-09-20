@@ -1,7 +1,6 @@
 package br.com.grupofgs.smartguide.ui.home
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.grupofgs.smartguide.extensions.fromRemoteConfig
@@ -15,8 +14,6 @@ import br.com.grupofgs.smartguide.utils.firebase.featuretoggle.FeatureToggleList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
-import java.io.Console
-import kotlin.math.log
 
 class HomeViewModel : ViewModel() {
     val menuState = MutableLiveData<RequestState<List<DashboardItem>>>()
@@ -48,7 +45,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun createMenu() {
+    fun createMenu(permissionMap: Boolean) {
 
         menuState.value = RequestState.Loading
 
@@ -63,7 +60,13 @@ class HomeViewModel : ViewModel() {
                 getUser()
 
                 val dashBoardItems = arrayListOf<DashboardItem>()
-                val itemsMenu = dashboardMenu?.items ?: listOf()
+                val itemsMenuOriginal = dashboardMenu?.items ?: listOf()
+                var itemsMenu: MutableList<DashboardItem> = itemsMenuOriginal.toMutableList()
+
+                //Remove MapButton se nao tiver permissão
+                if (!permissionMap) {
+                    itemsMenu.removeAt(0)
+                }
 
                 for (itemMenu in itemsMenu) {
                     FeatureToggleHelper().configureFeature(
@@ -72,7 +75,6 @@ class HomeViewModel : ViewModel() {
                             override fun onEnabled() {
                                 dashBoardItems.add(itemMenu)
                             }
-
                             override fun onInvisible() {}
                             override fun onDisabled(clickListener: (Context) -> Unit) {
                                 itemMenu.onDisabledListener = clickListener

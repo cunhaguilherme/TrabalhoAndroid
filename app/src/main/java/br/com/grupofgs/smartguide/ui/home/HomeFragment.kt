@@ -6,27 +6,23 @@ import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.View
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import br.com.grupofgs.smartguide.MainActivity
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.ContextCompat
-import br.com.grupofgs.smartguide.MainActivity
+import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), ListenFromActivity {
 
     override val layout = R.layout.fragment_home
-
-    //private lateinit var btMaps: Button
-    //private lateinit var btContacts: Button
-    //private lateinit var btAbout: Button
 
     private val homeViewModel: HomeViewModel by viewModels()
 
@@ -40,83 +36,74 @@ class HomeFragment : BaseFragment() {
             .from(context)
             .inflateTransition(android.R.transition.move)
 
+        (activity as MainActivity?)?.setActivityListener(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
-        if (ContextCompat.checkSelfPermission(this.requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this.requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED) {
             //Sem permissão
             print("Não tem permissao de location, entao solicita")
-            ActivityCompat.requestPermissions(this.requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
-            permissionMap = (activity as MainActivity).permissionGps
+            ActivityCompat.requestPermissions(
+                this.requireActivity(),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                1
+            )
         } else {
             //Com permissao
             print("Já tem permissao de location")
-            permissionMap = true
+            this.changeMapButtonState(true)
         }
+    }
 
-        setUpView(view)
-        homeViewModel.createMenu()
+    override fun changeMapButtonState(mapButtonVisibility: Boolean) {
+        //Retorno da Activity
+        permissionMap = mapButtonVisibility
+
+        view?.let { setUpView(it) }
+        homeViewModel.createMenu(permissionMap)
         registerObserver()
     }
 
+
     private fun setUpView(view: View) {
-        //btMaps = view.findViewById(R.id.btMaps)
-        //btContacts = view.findViewById(R.id.btContacts)
-        //btAbout = view.findViewById(R.id.btAbout)
         rvHomeDashboard = view.findViewById(R.id.rvHomeDashboard)
         tvHomeHelloUser = view.findViewById(R.id.tvHomeHelloUser)
-
-        /*btAbout.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(
-                    R.id.action_homeFragment_to_about_nav_graph,
-                    null,
-                    null
-                )
-        }*/
     }
-
-       /* btMaps.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                    .navigate(
-                            R.id.action_homeFragment_to_mapFragment,
-                            null,
-                            null
-                    )
-        }*/
-
-    /*private fun startLoginAnimation() {
-        val anim = AnimationUtils.loadAnimation(context, R.anim.anim_form_login)
-        btMaps.startAnimation(anim)
-        btContacts.startAnimation(anim)
-        btAbout.startAnimation(anim)
-    }*/
 
     private fun registerObserver() {
 
         homeViewModel.menuState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is RequestState.Loading -> {
-                    showLoading() }
+                    showLoading()
+                }
                 is RequestState.Success -> {
                     hideLoading()
                     setUpMenu(it.data)
                 }
                 is RequestState.Error -> {
-                    hideLoading() }
+                    hideLoading()
+                }
             }
         })
 
         homeViewModel.userNameState.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is RequestState.Loading -> { tvHomeHelloUser.text = "Carregando ..."
+                is RequestState.Loading -> {
+                    tvHomeHelloUser.text = "Carregando ..."
                     showLoading()
                 }
                 is RequestState.Success -> {
-                    tvHomeHelloUser.text = String.format(homeViewModel.dashboardMenu?.title ?: "", it.data)
+                    tvHomeHelloUser.text = String.format(
+                        homeViewModel.dashboardMenu?.title ?: "",
+                        it.data
+                    )
                     hideLoading()
                 }
                 is RequestState.Error -> {
@@ -130,21 +117,22 @@ class HomeFragment : BaseFragment() {
         homeViewModel.logoutState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is RequestState.Loading -> {
-                    showLoading() }
+                    showLoading()
+                }
                 is RequestState.Success -> {
                     hideLoading()
                     findNavController().navigate(R.id.login_graph)
                 }
                 is RequestState.Error -> {
                     hideLoading()
-                    showMessage(it.throwable.message) }
+                    showMessage(it.throwable.message)
+                }
             }
         })
     }
 
     private fun setUpMenu(items: List<DashboardItem>) {
-
-        rvHomeDashboard.adapter = HomeListAdapter(permissionMap, items, this::clickItem)
+        rvHomeDashboard.adapter = HomeListAdapter(items, this::clickItem)
     }
 
     private fun clickItem(item: DashboardItem) {
@@ -188,8 +176,6 @@ class HomeFragment : BaseFragment() {
                     showMessage(item.label)
                 }
             }
-
-
 
         }
     }

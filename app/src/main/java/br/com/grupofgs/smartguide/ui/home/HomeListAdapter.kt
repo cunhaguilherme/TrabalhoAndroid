@@ -1,20 +1,16 @@
 package br.com.grupofgs.smartguide.ui.home
 
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.grupofgs.smartguide.MainActivity
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dash_item.view.*
 
 class HomeListAdapter(
-    private var permissionMap: Boolean,
     private var menuItems: List<DashboardItem>,
     private var clickListener: (DashboardItem) -> Unit
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
@@ -28,15 +24,11 @@ class HomeListAdapter(
 
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(permissionMap , menuItems[position], clickListener)
+        holder.bind(menuItems[position], clickListener)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(permissionMap: Boolean , item: DashboardItem, clickListener: (DashboardItem) -> Unit) {
-            if(item.feature == "NAVIGATION"){
-               if(!permissionMap)
-                   itemView.visibility = View.INVISIBLE
-            }
+        fun bind(item: DashboardItem, clickListener: (DashboardItem) -> Unit) {
             itemView.tvItem.text = item.label
             GlideToVectorYou
                 .init()
