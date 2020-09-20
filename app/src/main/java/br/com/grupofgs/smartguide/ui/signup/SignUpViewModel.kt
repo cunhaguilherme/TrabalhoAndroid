@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import br.com.concrete.canarinho.validator.ValidadorTelefone
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
-import br.com.grupofgs.smartguide.extensions.isValidEmail
+import br.com.gabrielandrepiva.smarguidelib.isValidEmail
 import br.com.grupofgs.smartguide.models.RequestState
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
