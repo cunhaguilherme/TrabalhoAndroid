@@ -5,6 +5,7 @@ package br.com.grupofgs.smartguide.contacts.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.insert
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,9 +15,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.fragment.app.viewModels
+import br.com.concrete.canarinho.watcher.TelefoneTextWatcher
+import br.com.concrete.canarinho.watcher.evento.EventoDeValidacao
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.contacts.data.Contact
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import com.airbnb.lottie.model.content.Mask
 
 class ContactAddFragment : BaseFragment() {
 
@@ -44,13 +48,19 @@ class ContactAddFragment : BaseFragment() {
         etNameUser = view.findViewById(R.id.etNameUser)
         etPhoneUser = view.findViewById(R.id.etPhoneUser)
         btAddUser = view.findViewById<Button>(R.id.btAddContact)
+
+        etPhoneUser.addTextChangedListener(TelefoneTextWatcher(object : EventoDeValidacao {
+            override fun totalmenteValido(valorAtual: String?) {}
+            override fun invalido(valorAtual: String?, mensagem: String?) {}
+            override fun parcialmenteValido(valorAtual: String?) {}
+        }))
+
+
         btAddUser.setOnClickListener{
 
             if(TextUtils.isEmpty(etNameUser.text) || TextUtils.isEmpty(etPhoneUser.text)){
                 showMessage("Nao foi possivel realizar o insert")
             }else{
-
-
 
                 val name = etNameUser.text.toString()
                 val phone = etPhoneUser.text.toString()
