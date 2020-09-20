@@ -17,8 +17,11 @@ import br.com.grupofgs.smartguide.MainActivity
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
+import androidx.core.os.bundleOf
+import br.com.grupofgs.smartguide.extensions.startDeeplink
 import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.utils.SmartGuidTracker
 
 class HomeFragment : BaseFragment(), ListenFromActivity {
 
@@ -41,7 +44,6 @@ class HomeFragment : BaseFragment(), ListenFromActivity {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
         if (ContextCompat.checkSelfPermission(
                 this.requireActivity(),
@@ -139,6 +141,9 @@ class HomeFragment : BaseFragment(), ListenFromActivity {
         item.onDisabledListener.let {
             it?.invoke(requireContext())
         }
+        SmartGuidTracker.trackEvent(
+            requireActivity(), bundleOf("feature" to item.feature)
+        )
 
         if (item.onDisabledListener == null) {
             when(item.feature){
@@ -173,7 +178,8 @@ class HomeFragment : BaseFragment(), ListenFromActivity {
                             null
                         )
                 } else -> {
-                    showMessage(item.label)
+                    //showMessage(item.label)
+                    startDeeplink(item.action.deeplink)
                 }
             }
 
