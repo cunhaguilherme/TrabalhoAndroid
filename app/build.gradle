@@ -110,7 +110,6 @@ dependencies {
 
     // Testing
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
