@@ -25,14 +25,6 @@ public abstract class ContactRoomDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     var contactDao = database.contactDao()
-
-                    contactDao.deleteAll()
-
-                    var contact = Contact(1, "Filipe Cunha", 111111111)
-                    contactDao.insert(contact)
-
-
-
                 }
             }
         }
