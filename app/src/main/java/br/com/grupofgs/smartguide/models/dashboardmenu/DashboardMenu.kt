@@ -12,6 +12,7 @@ data class DashboardItem(
     val feature: String,
     val image: String,
     val label: String,
+    val label_en: String,
     val action: DashboardAction,
     var onDisabledListener: ((Context) -> Unit)?
 )

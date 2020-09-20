@@ -9,6 +9,7 @@ import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import kotlinx.android.synthetic.main.dash_item.view.*
+import java.util.*
 
 class HomeListAdapter(
     private var menuItems: List<DashboardItem>,
@@ -29,7 +30,13 @@ class HomeListAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: DashboardItem, clickListener: (DashboardItem) -> Unit) {
-            itemView.tvItem.text = item.label
+
+            if (Locale.getDefault().getLanguage().equals("en")) {
+                itemView.tvItem.text = item.label_en
+            } else {
+                itemView.tvItem.text = item.label
+            }
+
             GlideToVectorYou
                 .init()
                 .with(this.itemView.context)
