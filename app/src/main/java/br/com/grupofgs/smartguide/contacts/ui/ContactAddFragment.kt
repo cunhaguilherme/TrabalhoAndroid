@@ -21,6 +21,7 @@ import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.contacts.data.Contact
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
+import br.com.grupofgs.smartguide.utils.MaskEditUtil
 import com.airbnb.lottie.model.content.Mask
 
 class ContactAddFragment : BaseAuthFragment() {
@@ -50,6 +51,8 @@ class ContactAddFragment : BaseAuthFragment() {
         etPhoneUser = view.findViewById(R.id.etPhoneUser)
         btAddUser = view.findViewById<Button>(R.id.btAddContact)
 
+        etPhoneUser.addTextChangedListener(MaskEditUtil.mask(etPhoneUser, MaskEditUtil.FORMAT_CELLFONE));
+
 
         btAddUser.setOnClickListener{
 
@@ -59,6 +62,8 @@ class ContactAddFragment : BaseAuthFragment() {
 
                 val name = etNameUser.text.toString()
                 val phone = etPhoneUser.text.toString()
+                    .replace("-", "")
+                    .replace(" ", "")
                 var contact : Contact =  Contact(0, name, phone.toInt() )
 
                 contactViewModel.insert(contact)
