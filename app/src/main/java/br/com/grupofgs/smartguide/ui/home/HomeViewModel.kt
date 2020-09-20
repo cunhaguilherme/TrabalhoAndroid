@@ -13,6 +13,7 @@ import br.com.grupofgs.smartguide.utils.firebase.featuretoggle.FeatureToggleHelp
 import br.com.grupofgs.smartguide.utils.firebase.featuretoggle.FeatureToggleListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.gson.Gson
 
 class HomeViewModel : ViewModel() {
@@ -23,6 +24,18 @@ class HomeViewModel : ViewModel() {
     val userNameState = MutableLiveData<RequestState<String>>()
 
     val logoutState = MutableLiveData<RequestState<String>>()
+
+    private fun saveToken() {
+        val user = FirebaseAuth.getInstance().uid
+        if (user != null)
+            FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
+                db.collection("users")
+                    .document(FirebaseAuth.getInstance().uid ?: "")
+                    .update("token", it.token)
+                    .addOnSuccessListener {}
+                    .addOnFailureListener {}
+            }
+    }
 
     private fun getUser() {
         userNameState.value = RequestState.Loading
@@ -36,6 +49,7 @@ class HomeViewModel : ViewModel() {
                 .document(FirebaseAuth.getInstance().uid ?: "")
                 .get()
                 .addOnSuccessListener { documentSnapshot ->
+                    saveToken()
                     val userName = documentSnapshot.data?.get("username") as String
                     userNameState.value = RequestState.Success(userName)
                 }

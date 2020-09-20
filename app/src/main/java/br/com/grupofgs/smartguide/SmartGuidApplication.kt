@@ -18,7 +18,7 @@ class SmartGuidApplication : Application() {
 
     private fun configureCrashReporting() {
         val crashlyticsCore = CrashlyticsCore.Builder()
-            //.disabled(BuildConfig.DEBUG)
+            .disabled(BuildConfig.DEBUG)
             .build()
         Fabric.with(this, Crashlytics.Builder().core(crashlyticsCore).build())
     }
