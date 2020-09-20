@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_about_nav_graph"
             app:destination="@id/aboutFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
 
     </fragment>
 
@@ -35,5 +38,24 @@
         android:name="br.com.grupofgs.smartguide.ui.about.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="br.com.grupofgs.smartguide.contacts.ui.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" >
+        <action
+            android:id="@+id/action_contactsFragment_to_contactAddFragment"
+            app:destination="@id/contactAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactAddFragment"
+        android:name="br.com.grupofgs.smartguide.contacts.ui.ContactAddFragment"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" />
+    <fragment
+        android:id="@+id/contactEditFragment"
+        android:name="br.com.grupofgs.smartguide.contacts.ui.ContactEditFragment"
+        android:label="fragment_edit_contact"
+        tools:layout="@layout/fragment_edit_contact" />
 
 </navigation>

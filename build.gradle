@@ -43,4 +43,3 @@ ext {
     materialVersion = '1.1.0'
     coroutines = '1.3.4'
 }
-}

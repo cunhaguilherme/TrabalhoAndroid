@@ -180,7 +180,7 @@ class HomeFragment : BaseFragment() {
                     showMessage(item.feature)
                     NavHostFragment.findNavController(this)
                         .navigate(
-                            R.id.action_homeFragment_to_about_nav_graph,
+                            R.id.action_homeFragment_to_contactsFragment,
                             null,
                             null
                         )
