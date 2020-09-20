@@ -21,9 +21,10 @@ import androidx.core.os.bundleOf
 import br.com.grupofgs.smartguide.extensions.startDeeplink
 import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import br.com.grupofgs.smartguide.utils.SmartGuidTracker
 
-class HomeFragment : BaseFragment(), ListenFromActivity {
+class HomeFragment : BaseAuthFragment(), ListenFromActivity {
 
     override val layout = R.layout.fragment_home
 
