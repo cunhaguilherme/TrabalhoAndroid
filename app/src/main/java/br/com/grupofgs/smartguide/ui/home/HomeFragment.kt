@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
@@ -62,6 +63,17 @@ class HomeFragment : BaseAuthFragment(), ListenFromActivity {
             print("Já tem permissao de location")
             this.changeMapButtonState(true)
         }
+
+        registerBackPressedAction()
+    }
+
+    private fun registerBackPressedAction() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                activity?.finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun changeMapButtonState(mapButtonVisibility: Boolean) {
