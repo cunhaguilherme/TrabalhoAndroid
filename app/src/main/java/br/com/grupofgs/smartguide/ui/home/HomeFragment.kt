@@ -24,10 +24,13 @@ import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import br.com.grupofgs.smartguide.utils.SmartGuidTracker
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.dash_item.view.*
 import java.util.*
 
 class HomeFragment : BaseAuthFragment(), ListenFromActivity {
+
+    private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override val layout = R.layout.fragment_home
 
@@ -48,22 +51,27 @@ class HomeFragment : BaseAuthFragment(), ListenFromActivity {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
-        if (ContextCompat.checkSelfPermission(
-                this.requireActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED) {
-            //Sem permissão
-            print("Não tem permissao de location, entao solicita")
-            ActivityCompat.requestPermissions(
-                this.requireActivity(),
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                1
-            )
-        } else {
-            //Com permissao
-            print("Já tem permissao de location")
-            this.changeMapButtonState(true)
+
+        if (mAuth.currentUser != null) {
+
+            //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
+            if (ContextCompat.checkSelfPermission(
+                    this.requireActivity(),
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED) {
+                //Sem permissão
+                print("Não tem permissao de location, entao solicita")
+                ActivityCompat.requestPermissions(
+                    this.requireActivity(),
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    1
+                )
+            } else {
+                //Com permissao
+                print("Já tem permissao de location")
+                this.changeMapButtonState(true)
+            }
+
         }
 
         registerBackPressedAction()

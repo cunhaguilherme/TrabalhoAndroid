@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -33,6 +34,7 @@ import kotlinx.android.synthetic.main.fragment_map.*
 class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
 
     override val layout = R.layout.fragment_map
+    private lateinit var ivBack: ImageView
 
     private lateinit var googleMap: GoogleMap
 
@@ -82,6 +84,11 @@ class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
         btPathToFIAP = view.findViewById(R.id.btPathToFIAP)
         btCallHelp = view.findViewById(R.id.btCallHelp)
         btShareMap = view.findViewById(R.id.btShareMap)
+        ivBack = view.findViewById(R.id.ivBack)
+
+        ivBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
         //Botão de ligação de emergência inicia invisivel até usuário dar permissão
         btCallHelp.setVisibility(View.GONE);
@@ -180,7 +187,7 @@ class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
 
         val bounds = b.build()
 
-        val padding = 200;
+        val padding = 220;
         val cu = CameraUpdateFactory.newLatLngBounds(bounds, padding)
         googleMap.animateCamera(cu)
     }
