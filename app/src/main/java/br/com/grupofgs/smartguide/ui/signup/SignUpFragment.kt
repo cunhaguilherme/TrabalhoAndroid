@@ -106,7 +106,7 @@ class SignUpFragment : BaseFragment() {
                     hideLoading()
                     Toast.makeText(this.context, getString(R.string.signUpSucess), Toast.LENGTH_SHORT).show()
                     NavHostFragment.findNavController(this)
-                        .navigate(R.id.action_signUpFragment_to_loginFragment)
+                        .navigate(R.id.main_nav_graph)
                 }
                 is RequestState.Error -> {
                     hideLoading()

@@ -10,15 +10,18 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
 import br.com.grupofgs.smartguide.extensions.hideKeyboard
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.NAVIGATION_KEY
 
 class LoginFragment : BaseFragment() {
 
@@ -46,6 +49,17 @@ class LoginFragment : BaseFragment() {
         setUpView(view)
         startLoginAnimation()
         registerObserver()
+
+        registerBackPressedAction()
+    }
+
+    private fun registerBackPressedAction() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                activity?.finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun registerObserver() {
@@ -116,8 +130,14 @@ class LoginFragment : BaseFragment() {
 
     private fun showSuccess() {
         hideLoading()
-        NavHostFragment.findNavController(this)
-            .navigate(R.id.action_loginFragment_to_main_nav_graph)
+
+        val navIdFromArguments = arguments?.getInt(NAVIGATION_KEY)
+
+        if (navIdFromArguments == null) {
+            findNavController().navigate(R.id.main_nav_graph)
+        } else {
+            findNavController().popBackStack(navIdFromArguments, false)
+        }
     }
     private fun showError(t: Throwable) {
         hideLoading()

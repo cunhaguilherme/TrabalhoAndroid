@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 
-class AboutFragment : BaseFragment() {
+class AboutFragment : BaseAuthFragment() {
 
     override val layout = R.layout.fragment_about
 

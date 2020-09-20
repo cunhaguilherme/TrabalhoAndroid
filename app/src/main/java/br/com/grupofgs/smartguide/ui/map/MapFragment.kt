@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import br.com.grupofgs.smartguide.R
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -29,7 +30,9 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_map.*
 
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
+
+    override val layout = R.layout.fragment_map
 
     private lateinit var googleMap: GoogleMap
 
@@ -47,11 +50,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var btPathToFIAP: ExtendedFloatingActionButton
     private lateinit var btCallHelp: FloatingActionButton
     private lateinit var btShareMap: FloatingActionButton
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

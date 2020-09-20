@@ -17,9 +17,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_loginFragment_to_main_nav_graph"
-            app:destination="@id/main_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -33,14 +30,10 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_signUpFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/termsFragment"
         android:name="br.com.grupofgs.smartguide.ui.terms.TermsFragment"
         android:label="fragment_terms"
         tools:layout="@layout/fragment_terms" />
-    <include app:graph="@navigation/main_nav_graph" />
 </navigation>

@@ -16,10 +16,11 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.contacts.data.Contact
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class ContactsFragment : BaseFragment() {
+class ContactsFragment : BaseAuthFragment() {
 
     override val layout = R.layout.fragment_contacts
 
