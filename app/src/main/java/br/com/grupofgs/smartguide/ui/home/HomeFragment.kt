@@ -17,11 +17,7 @@ import br.com.grupofgs.smartguide.MainActivity
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.models.RequestState
 import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import br.com.grupofgs.smartguide.MainActivity
 import br.com.grupofgs.smartguide.extensions.startDeeplink
 import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
@@ -48,8 +44,8 @@ class HomeFragment : BaseFragment(), ListenFromActivity {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //Verifica permissão de location, solicitar caso não tiver logo que abrir o app
+        if (ContextCompat.checkSelfPermission(
                 this.requireActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED) {

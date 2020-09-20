@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     var activityListener: ListenFromActivity? = null
 
-    var permissionGps: Boolean = false;
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         fullScreen()

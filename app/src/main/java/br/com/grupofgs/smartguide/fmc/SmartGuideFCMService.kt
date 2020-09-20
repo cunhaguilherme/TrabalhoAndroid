@@ -40,7 +40,8 @@ class SmartGuideFCMService : FirebaseMessagingService() {
 
     private fun sendNotification(intent: Intent, title: String?, message: String?) {
 
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent,
+            PendingIntent.FLAG_ONE_SHOT)
         val channel = getString(R.string.default_notification_channel_id)
 
         val sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
