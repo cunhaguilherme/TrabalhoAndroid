@@ -49,12 +49,6 @@ class ContactAddFragment : BaseFragment() {
         etPhoneUser = view.findViewById(R.id.etPhoneUser)
         btAddUser = view.findViewById<Button>(R.id.btAddContact)
 
-        etPhoneUser.addTextChangedListener(TelefoneTextWatcher(object : EventoDeValidacao {
-            override fun totalmenteValido(valorAtual: String?) {}
-            override fun invalido(valorAtual: String?, mensagem: String?) {}
-            override fun parcialmenteValido(valorAtual: String?) {}
-        }))
-
 
         btAddUser.setOnClickListener{
 
