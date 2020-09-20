@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.grupofgs.smartguide.contacts.ui.ContactAddFragment" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tvTitleSignUp"
+            style="@style/TitleApp"
+            android:layout_width="0dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/title_screen_add_ontact"
+            android:textSize="48sp"
+            android:transitionName="textApp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSubTitleSignUp"
+            style="@style/TvBackOrange"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/tvSubTitleAddContact"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleSignUp" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="65dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/abc_vector_test" />
+
+        <LinearLayout
+            android:id="@+id/containerSignUp"
+            android:layout_width="367dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleSignUp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvSubTitleSignUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp">
+
+            <TextView
+                android:id="@+id/tvNameUser"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvNameUser"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etNameUser"
+                style="@style/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+
+            <TextView
+                android:id="@+id/tvPhoneUser"
+                style="@style/TvBackOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/tvPhoneUser"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPhoneUser"
+                style="@style/etLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="phone" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btAddContact"
+            style="@style/btBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/btAddContact"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
