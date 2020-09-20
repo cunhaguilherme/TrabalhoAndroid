@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Smart Guide</string>
+    <string name="title_app">SmartGuide App</string>
+    <string name="title_about">About Us</string>
+    <string name="loading">Processing requisition</string>
+
+    <!-- EmailInvalidException -->
+    <string name="emailExInvalid">Invalid E-mail</string>
+
+    <!-- Tela de Login -->
+    <string name="tvUser">User</string>
+    <string name="tvPassword">Password</string>
+    <string name="btLogin">Login</string>
+    <string name="tvForgotPassword"><u>Forgot password?</u></string>
+    <string name="tvSignUp"><u>Create new account</u></string>
+    <string name="tvSubTitleSignUp">Fill up all fields from your new account:</string>
+    <string name="loginLoadingAuth">Authenticating</string>
+    <string name="loginLoadingSendEmail">An e-mail was sent to redefine the password</string>
+    <string name="loginInvalidTryAgain">E-mail and/or password invalid. Please, check the data and try again.</string>
+    <string name="loginErrorRequisition">It was not possible to complete the requisition</string>
+    <string name="loginErrorPwdEmpty">Please, enter your password</string>
+    <string name="loginErrorPwdLength">Password length must have at least 6 characters</string>
+    <string name="loginPwdCheckEmail">Please, check your e-mail inbox</string>
+
+    <!-- Tela de SignUp -->
+    <string name="tvNameUser">Name:</string>
+    <string name="tvEmailUser">E-mail:</string>
+    <string name="tvPhoneUser">Phone:</string>
+    <string name="tvPasswordUser">Password:</string>
+    <string name="tvTerms"><u>I have read and agree with all terms</u></string>
+    <string name="btSignUp">Create account</string>
+    <string name="signUpSucess">Account successful created!</string>
+    <string name="signUpAction">Creating your account...</string>
+    <string name="signUpErrorRequisition">It was not possible to complete the requisition</string>
+    <string name="signUpErrorUserNameEmpty">Please, inform the user name</string>
+    <string name="signUpErrorPhoneEmpty">Please, inform the user phone</string>
+    <string name="signUpErrorPhoneInvalid">Please, inform a valid phone number</string>
+    <string name="signUpErrorPwdEmpty">Please, inform the password</string>
+    <string name="signUpErrorPwdLength">Password length must have at least 6 characters</string>
+    <string name="signUpErrorTerms">You must accept the terms to signUp</string>
+
+    <!-- Tela de Update App -->
+    <string name="tvTitleUpdApp">Oops!</string>
+    <string name="tvMessageUpdApp">You are using an old version of the App. You need to update it to keep using.</string>
+    <string name="btUpdApp">Update App</string>
+    <string name="btUpdAppLater">Update later</string>
+
+    <!-- Tela de Home -->
+    <string name="homeLoading">Loading...</string>
+    <string name="homeWelcome">Welcome</string>
+    <string name="logoutSucess">Logout successful</string>
+    <string name="btMaps">MAP</string>
+    <string name="btContacts">EMERGENCY CONTACTS</string>
+    <string name="btAbout">ABOUT</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Tela de Mapa -->
+    <string name="btPathToFIAP">FIAP Distance</string>
+    <string name="myCurrentLocationTitle">Me</string>
+    <string name="myCurrentLocationSnippet">My current location</string>
+    <string name="fiapLocationSnippet">Our lovely school</string>
+    <string name="shareLocationTitle">Share current location with:</string>
+
+    <!-- Tela de Sobre Nos -->
+    <string name="name_company">FGs Technology Company © </string>
+    <string name="app_version">app version 1.0.0</string>
+    <string name="nameFilipe">Filipe Cunha</string>
+    <string name="nameFabio">Fabio Asnis</string>
+    <string name="nameGabriel">Gabriel Piva</string>
+    <string name="nameGuilherme">Guilherme Cunha</string>
+
+    <!-- Tela de Contatos -->
+    <string name="title_screen_contact">Contacts</string>
+
+    <!-- Tela Cadastro de Contatos -->
+    <string name="title_screen_add_ontact">Add Contacts</string>
+    <string name="btAddContact">Create contact</string>
+    <string name="tvSubTitleAddContact">Insert all emergency contact info:</string>
+
+    <!-- Tela Editar Contatos -->
+    <string name="title_screen_edit_ontact">Edit contact</string>
+    <string name="btEditContact">Save updated info</string>
+    <string name="tvSubTitleEditContact">Edit info of emergency contact:</string>
+
+    <!-- Crashlytics-->
+    <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>
+    <!-- FCM -->
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <!-- Menu de Navegaçao Inferior -->
+    <string name="menu_home_home">Home</string>
+    <string name="menu_home_about">About Us</string>
+    <string name="menu_home_map">Map</string>
+    <string name="menu_home_contacts">Contacts</string>
+
+</resources>

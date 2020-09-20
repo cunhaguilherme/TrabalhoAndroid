@@ -10,6 +10,8 @@ import br.com.grupofgs.smartguide.models.RequestState
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import br.com.gabrielandrepiva.smarguidelib.NewUser
+import br.com.grupofgs.smartguide.R
+import br.com.grupofgs.smartguide.SmartGuidApplication
 
 class SignUpViewModel : ViewModel() {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -32,7 +34,8 @@ class SignUpViewModel : ViewModel() {
             } else {
                     signUpState.value = RequestState.Error(
                         Throwable(
-                            task.exception?.message ?: "Não foi possível realizar a requisição"
+                            task.exception?.message ?: SmartGuidApplication.context?.resources?.getString(
+                                R.string.signUpErrorRequisition)
                         )
                     )
                 }
@@ -64,7 +67,8 @@ class SignUpViewModel : ViewModel() {
     private fun validateFields(newUser:NewUser): Boolean {
 
         if (newUser.username?.isEmpty() == true) {
-            signUpState.value = RequestState.Error(Throwable("Informe o nome do usuário"))
+            signUpState.value = RequestState.Error(Throwable(SmartGuidApplication.context?.resources?.getString(
+                R.string.signUpErrorUserNameEmpty)))
             return false
         }
 
@@ -74,27 +78,32 @@ class SignUpViewModel : ViewModel() {
         }
 
         if (newUser.phone?.isEmpty() == true) {
-            signUpState.value = RequestState.Error(Throwable("Informe o telefone do usuário"))
+            signUpState.value = RequestState.Error(Throwable(SmartGuidApplication.context?.resources?.getString(
+                R.string.signUpErrorPhoneEmpty)))
             return false
         }
 
         if (!ValidadorTelefone.TELEFONE.ehValido(newUser.phone)) {
-            signUpState.value = RequestState.Error(Throwable("Informe um telefone válido"))
+            signUpState.value = RequestState.Error(Throwable(SmartGuidApplication.context?.resources?.getString(
+                R.string.signUpErrorPhoneInvalid)))
             return false
         }
 
         if (newUser.password?.isEmpty() == true) {
-            signUpState.value = RequestState.Error(PasswordInvalidException("Informe uma senha"))
+            signUpState.value = RequestState.Error(PasswordInvalidException(SmartGuidApplication.context?.resources?.getString(
+                R.string.signUpErrorPwdEmpty)!!))
             return false
         }
 
         if (newUser.password?.length ?: 0 < 6) {
-            signUpState.value = RequestState.Error(PasswordInvalidException("Senha com no mínimo 6 caracteres"))
+            signUpState.value = RequestState.Error(PasswordInvalidException(SmartGuidApplication.context?.resources?.getString(
+                R.string.signUpErrorPwdLength)!!))
             return false
         }
 
         if (newUser.terms == false) {
-            signUpState.value = RequestState.Error(Throwable("Os termos de uso devem ser aceitos"))
+            signUpState.value = RequestState.Error(Throwable(SmartGuidApplication.context?.resources?.getString(
+                R.string.signUpErrorTerms)))
             return false
         }
 

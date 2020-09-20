@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Smart Guide</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_app">SmartGuide App</string>
     <string name="title_about">Sobre nós</string>
+    <string name="loading">Processando a requisição</string>
+
+    <!-- EmailInvalidException -->
+    <string name="emailExInvalid">E-mail inválido</string>
 
     <!-- Tela de Login -->
     <string name="tvUser">Usuário</string>
@@ -11,6 +14,13 @@
     <string name="tvForgotPassword"><u>Esqueci minha senha</u></string>
     <string name="tvSignUp"><u>Criar minha conta</u></string>
     <string name="tvSubTitleSignUp">Preencha os dados da sua conta:</string>
+    <string name="loginLoadingAuth">Realizando a autenticação</string>
+    <string name="loginLoadingSendEmail">Reenviando o e-mail para alteração</string>
+    <string name="loginInvalidTryAgain">E-mail e/ou senha inválidos. Por favor, verifique e tente novamente.</string>
+    <string name="loginErrorRequisition">Não foi possível realizar a requisição</string>
+    <string name="loginErrorPwdEmpty">Informe uma senha</string>
+    <string name="loginErrorPwdLength">Senha com no mínimo 6 caracteres</string>
+    <string name="loginPwdCheckEmail">Verifique sua caixa de e-mail</string>
 
     <!-- Tela de SignUp -->
     <string name="tvNameUser">Nome:</string>
@@ -19,6 +29,15 @@
     <string name="tvPasswordUser">Senha:</string>
     <string name="tvTerms"><u>Li e aceito os termos de uso</u></string>
     <string name="btSignUp">Criar conta</string>
+    <string name="signUpSucess">Cadastro realizado com sucesso!</string>
+    <string name="signUpAction">Realizando a criação de seu cadastro...</string>
+    <string name="signUpErrorRequisition">Não foi possível realizar a requisição</string>
+    <string name="signUpErrorUserNameEmpty">Informe o nome do usuário</string>
+    <string name="signUpErrorPhoneEmpty">Informe o telefone do usuário</string>
+    <string name="signUpErrorPhoneInvalid">Informe um telefone válido</string>
+    <string name="signUpErrorPwdEmpty">Informe uma senha</string>
+    <string name="signUpErrorPwdLength">Senha com no mínimo 6 caracteres</string>
+    <string name="signUpErrorTerms">Os termos de uso devem ser aceitos</string>
 
     <!-- Tela de Update App -->
     <string name="tvTitleUpdApp">Ops!</string>
@@ -27,11 +46,20 @@
     <string name="btUpdAppLater">Atualizar depois</string>
 
     <!-- Tela de Home -->
+    <string name="homeLoading">Carregando...</string>
+    <string name="homeWelcome">Bem-vindo</string>
+    <string name="logoutSucess">Logout efetuado com sucesso</string>
     <string name="btMaps">MAPA</string>
     <string name="btContacts">CONTATOS DE EMERGÊNCIA</string>
     <string name="btAbout">SOBRE</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Tela de Mapa -->
+    <string name="btPathToFIAP">Distância FIAP</string>
+    <string name="myCurrentLocationTitle">Eu</string>
+    <string name="myCurrentLocationSnippet">Minha localização atual</string>
+    <string name="fiapLocationSnippet">Nossa escola do coração</string>
+    <string name="shareLocationTitle">Compartilhar local atual via:</string>
 
     <!-- Tela de Sobre Nos -->
     <string name="name_company">FGs Technology Company © </string>
@@ -42,15 +70,15 @@
     <string name="nameGuilherme">Guilherme Cunha</string>
 
     <!-- Tela de Contatos -->
-    <string name="title_screen_contact">Contatos </string>
+    <string name="title_screen_contact">Contatos</string>
 
     <!-- Tela Cadastro de  Contatos -->
-    <string name="title_screen_add_ontact">Adicionar Contato </string>
+    <string name="title_screen_add_ontact">Adicionar Contato</string>
     <string name="btAddContact">Criar contato</string>
     <string name="tvSubTitleAddContact">Preencha os dados do contato de emergência:</string>
 
     <!-- Tela Editar Contatos -->
-    <string name="title_screen_edit_ontact">Editar Contato </string>
+    <string name="title_screen_edit_ontact">Editar Contato</string>
     <string name="btEditContact">Salvar alterações</string>
     <string name="tvSubTitleEditContact">Edite os dados do contato de emergência:</string>
 
@@ -63,6 +91,5 @@
     <string name="menu_home_about">Sobre Nós</string>
     <string name="menu_home_map">Mapa</string>
     <string name="menu_home_contacts">Contatos</string>
-
 
 </resources>

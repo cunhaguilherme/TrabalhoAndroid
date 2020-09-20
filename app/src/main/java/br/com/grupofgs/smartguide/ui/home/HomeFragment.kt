@@ -24,6 +24,8 @@ import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import br.com.grupofgs.smartguide.utils.SmartGuidTracker
+import kotlinx.android.synthetic.main.dash_item.view.*
+import java.util.*
 
 class HomeFragment : BaseAuthFragment(), ListenFromActivity {
 
@@ -111,18 +113,27 @@ class HomeFragment : BaseAuthFragment(), ListenFromActivity {
         homeViewModel.userNameState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is RequestState.Loading -> {
-                    tvHomeHelloUser.text = "Carregando ..."
+                    tvHomeHelloUser.text = getString(R.string.homeLoading)
                     showLoading()
                 }
                 is RequestState.Success -> {
-                    tvHomeHelloUser.text = String.format(
-                        homeViewModel.dashboardMenu?.title ?: "",
-                        it.data
-                    )
+
+                    if (Locale.getDefault().getLanguage().equals("en")) {
+                        tvHomeHelloUser.text = String.format(
+                            homeViewModel.dashboardMenu?.title_en ?: "",
+                            it.data
+                        )
+                    } else {
+                        tvHomeHelloUser.text = String.format(
+                            homeViewModel.dashboardMenu?.title ?: "",
+                            it.data
+                        )
+                    }
+
                     hideLoading()
                 }
                 is RequestState.Error -> {
-                    tvHomeHelloUser.text = "Bem-vindo"
+                    tvHomeHelloUser.text = getString(R.string.homeWelcome)
                     hideLoading()
                 }
             }
@@ -161,7 +172,7 @@ class HomeFragment : BaseAuthFragment(), ListenFromActivity {
         if (item.onDisabledListener == null) {
             when(item.feature){
                 "EXIT" -> {
-                    showMessage("Logout efetuado com sucesso")
+                    showMessage(getString(R.string.logoutSucess))
                     homeViewModel.signOut()
                 }
                 "NAVIGATION" -> {

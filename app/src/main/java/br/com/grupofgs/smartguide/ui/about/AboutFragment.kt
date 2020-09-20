@@ -19,7 +19,6 @@ class AboutFragment : BaseAuthFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         ivBack = view.findViewById(R.id.ivBack)
 
         ivBack.setOnClickListener {

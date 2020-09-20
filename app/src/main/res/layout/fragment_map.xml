@@ -27,7 +27,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:scaleX="2"
             android:scaleY="2"
-            android:text="FIAP distance"
+            android:text="@string/btPathToFIAP"
             android:textColor="#FFFFFF"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
             app:icon="@drawable/ic_location_on_24px"

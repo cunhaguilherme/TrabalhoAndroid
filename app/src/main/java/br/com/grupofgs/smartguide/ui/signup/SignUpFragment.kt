@@ -104,7 +104,7 @@ class SignUpFragment : BaseFragment() {
             when (it) {
                 is RequestState.Success -> {
                     hideLoading()
-                    Toast.makeText(this.context, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.context, getString(R.string.signUpSucess), Toast.LENGTH_SHORT).show()
                     NavHostFragment.findNavController(this)
                         .navigate(R.id.main_nav_graph)
                 }
@@ -112,7 +112,7 @@ class SignUpFragment : BaseFragment() {
                     hideLoading()
                     showMessage(it.throwable.message)
                 }
-                is RequestState.Loading -> showLoading("Realizando a criação de seu cadastro...")
+                is RequestState.Loading -> showLoading(getString(R.string.signUpAction))
             }
         })
     }

@@ -11,7 +11,6 @@ import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import br.com.grupofgs.smartguide.utils.firebase.RemoteConfigUtils
 import br.com.grupofgs.smartguide.utils.firebase.constants.RemoteConfigKeys
 
-
 class TermsFragment : BaseFragment() {
 
     override val layout = R.layout.fragment_terms

@@ -68,7 +68,7 @@ class LoginFragment : BaseFragment() {
                 is RequestState.Success -> showSuccess()
                 is RequestState.Error -> showError(it.throwable)
                 is RequestState.Loading -> {
-                    showLoading("Realizando a autenticação")
+                    showLoading(getString(R.string.loginLoadingAuth))
                     hideKeyboard()
                 }
 
@@ -82,7 +82,7 @@ class LoginFragment : BaseFragment() {
                     showMessage(it.data)
                 }
                 is RequestState.Error -> showError(it.throwable)
-                is RequestState.Loading -> showLoading("Reenviando o e-mail para alteração")
+                is RequestState.Loading -> showLoading(getString(R.string.loginLoadingSendEmail))
             }
         })
     }
@@ -143,7 +143,7 @@ class LoginFragment : BaseFragment() {
         hideLoading()
         etUser.error = null
         etPassword.error = null
-        showMessage("E-mail e/ou senha inválidos. Por favor, verifique e tente novamente.")
+        showMessage(getString(R.string.loginInvalidTryAgain))
         when (t) {
             is EmailInvalidException -> {
                 etUser.error = t.message
