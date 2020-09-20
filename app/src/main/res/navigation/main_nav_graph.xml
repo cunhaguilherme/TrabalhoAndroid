@@ -54,13 +54,13 @@
         android:id="@+id/contactsFragment"
         android:name="br.com.grupofgs.smartguide.contacts.ui.ContactsFragment"
         android:label="fragment_contacts"
-        tools:layout="@layout/fragment_contacts" >
+        tools:layout="@layout/fragment_contacts">
         <action
             android:id="@+id/action_contactsFragment_to_contactAddFragment"
             app:destination="@id/contactAddFragment" />
-        <action
-            android:id="@+id/action_contactsFragment_to_contactEditFragment"
-            app:destination="@id/contactEditFragment" />
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://www.smartguide.com.br/contact" />
     </fragment>
     <fragment
         android:id="@+id/contactAddFragment"
