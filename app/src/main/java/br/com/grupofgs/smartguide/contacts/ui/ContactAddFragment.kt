@@ -20,9 +20,10 @@ import br.com.concrete.canarinho.watcher.evento.EventoDeValidacao
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.contacts.data.Contact
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import com.airbnb.lottie.model.content.Mask
 
-class ContactAddFragment : BaseFragment() {
+class ContactAddFragment : BaseAuthFragment() {
 
     override val layout = R.layout.fragment_add_contact
 

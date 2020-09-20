@@ -65,7 +65,7 @@ class SplashFragment : Fragment() {
             )
             NavHostFragment.findNavController(this)
                 .navigate(
-                    R.id.action_splashFragment_to_login_graph,
+                    R.id.action_splashFragment_to_main_nav_graph,
                     null,
                     null,
                     extras

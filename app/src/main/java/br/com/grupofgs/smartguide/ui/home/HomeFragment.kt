@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
@@ -21,9 +22,10 @@ import androidx.core.os.bundleOf
 import br.com.grupofgs.smartguide.extensions.startDeeplink
 import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import br.com.grupofgs.smartguide.utils.SmartGuidTracker
 
-class HomeFragment : BaseFragment(), ListenFromActivity {
+class HomeFragment : BaseAuthFragment(), ListenFromActivity {
 
     override val layout = R.layout.fragment_home
 
@@ -61,6 +63,17 @@ class HomeFragment : BaseFragment(), ListenFromActivity {
             print("Já tem permissao de location")
             this.changeMapButtonState(true)
         }
+
+        registerBackPressedAction()
+    }
+
+    private fun registerBackPressedAction() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                activity?.finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun changeMapButtonState(mapButtonVisibility: Boolean) {

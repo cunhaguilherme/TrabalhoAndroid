@@ -10,8 +10,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
+import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 
-class ContactEditFragment : BaseFragment() {
+class ContactEditFragment : BaseAuthFragment() {
 
     override val layout = R.layout.fragment_edit_contact
 

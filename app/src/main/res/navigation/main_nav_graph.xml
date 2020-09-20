@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_homeFragment_to_contactsFragment"
             app:destination="@id/contactsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_login_graph"
+            app:destination="@id/login_graph" />
 
     </fragment>
 
@@ -55,6 +58,9 @@
         <action
             android:id="@+id/action_contactsFragment_to_contactAddFragment"
             app:destination="@id/contactAddFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_contactEditFragment"
+            app:destination="@id/contactEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactAddFragment"
@@ -68,7 +74,7 @@
         android:name="br.com.grupofgs.smartguide.contacts.ui.ContactEditFragment"
         android:label="fragment_edit_contact"
         tools:layout="@layout/fragment_edit_contact" />
-
+    <include app:graph="@navigation/login_graph" />
 
 
 </navigation>
