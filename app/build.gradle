@@ -5,6 +5,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
 
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -107,6 +108,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-config-ktx:19.2.0'
     implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
 
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
