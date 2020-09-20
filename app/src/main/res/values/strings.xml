@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Smart Guide</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_app">SmartGuide App</string>
     <string name="title_about">Sobre nós</string>
 
@@ -30,8 +29,10 @@
     <string name="btMaps">MAPA</string>
     <string name="btContacts">CONTATOS DE EMERGÊNCIA</string>
     <string name="btAbout">SOBRE</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Tela de Mapa -->
+    <string name="btPathToFIAP">Distância FIAP</string>
 
     <!-- Tela de Sobre Nos -->
     <string name="name_company">FGs Technology Company © </string>
@@ -50,7 +51,5 @@
     <string name="menu_home_about">Sobre Nós</string>
     <string name="menu_home_map">Mapa</string>
     <string name="menu_home_contacts">Contatos</string>
-
-
 
 </resources>
