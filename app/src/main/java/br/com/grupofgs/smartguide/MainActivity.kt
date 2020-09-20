@@ -6,15 +6,15 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
-import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardMenu
+import br.com.grupofgs.smartguide.ui.ListenFromActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 //import com.crashlytics.android.Crashlytics
 //import io.fabric.sdk.android.Fabric
 
 
 class MainActivity : AppCompatActivity() {
+
+    var activityListener: ListenFromActivity? = null
 
     var permissionGps: Boolean = false;
 
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         );
     }
 
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -44,17 +45,27 @@ class MainActivity : AppCompatActivity() {
 
             if (permissionResult == PackageManager.PERMISSION_GRANTED){
                 if (requestCode == 1) {
-                    //Libera botao de mapa na home
-                    permissionGps = true;
+                    //Libera botao de mapa ao inciar home
+                    activityListener?.changeMapButtonState(true)
+
                 } else if (requestCode == 2) {
                     //Libera botao de chamada no mapa
                     val btCallHelp = this.findViewById<FloatingActionButton>(R.id.btCallHelp)
                     btCallHelp.setVisibility(View.VISIBLE);
                 }
+            } else {
+                if (requestCode == 1) {
+                    //Não libera botão de mapa ao iniciar home
+                    activityListener?.changeMapButtonState(false)
+                }
             }
-
         }
 
+    }
+
+    @JvmName("setActivityListener1")
+    fun setActivityListener(activityListener: ListenFromActivity?) {
+        this.activityListener = activityListener
     }
 
     }
