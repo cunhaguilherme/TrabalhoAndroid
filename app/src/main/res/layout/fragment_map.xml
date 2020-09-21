@@ -33,10 +33,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
             android:backgroundTint="@color/colorPrimary"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
             android:text="@string/btPathToFIAP"
             android:textColor="#FFFFFF"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
@@ -85,6 +84,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="36dp" />
+
+        <TextView
+            android:id="@+id/lbMapLocationWarn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbMapLocationWarn"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btCallHelp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btPathToFIAP" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
