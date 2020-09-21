@@ -61,6 +61,9 @@
         <deepLink
             android:id="@+id/deepLink2"
             app:uri="https://www.smartguide.com.br/contact" />
+        <action
+            android:id="@+id/action_contactsFragment_to_contactEditFragment"
+            app:destination="@id/contactEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactAddFragment"

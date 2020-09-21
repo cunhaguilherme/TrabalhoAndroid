@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.contacts.data.Contact
+import br.com.grupofgs.smartguide.models.dashboardmenu.DashboardItem
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,10 +26,13 @@ class ContactsFragment : BaseAuthFragment() {
     override val layout = R.layout.fragment_contacts
 
 
+
     private val contactViewModel: ContactViewModel by viewModels()
     private lateinit var rvContact: RecyclerView
     private lateinit var ivBack: ImageView
     private lateinit var btAddContact: FloatingActionButton
+
+
     //private lateinit var contactViewModel: ContactViewModel
 
 
@@ -52,9 +56,26 @@ class ContactsFragment : BaseAuthFragment() {
     private fun setUpView(view: View) {
 
         rvContact = view.findViewById(R.id.rvContacts)
-        val adapter = ContactListAdapter(this)
+        val adapter = ContactListAdapter(this,  object : ContactListAdapter.ContactListener {
+            override fun delete(contact: Contact) {
+                contactViewModel.delete(contact)
+            }
+
+            override fun onEdit(contact: Contact) {
+                NavHostFragment.findNavController(this@ContactsFragment)
+                    .navigate(
+                        R.id.action_contactsFragment_to_contactEditFragment,
+
+                        Bundle().apply{putParcelable("contact", contact)},
+                        null
+                    )
+            }
+
+        })
         rvContact.adapter = adapter
         rvContact.layoutManager = LinearLayoutManager(this.context)
+
+
 
 
         //contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
@@ -82,6 +103,9 @@ class ContactsFragment : BaseAuthFragment() {
 
 
     }
+
+
+
 
 
 
