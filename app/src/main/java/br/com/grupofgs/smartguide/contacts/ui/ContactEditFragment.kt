@@ -15,6 +15,7 @@ import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.contacts.data.Contact
 import br.com.grupofgs.smartguide.ui.base.BaseFragment
 import br.com.grupofgs.smartguide.ui.base.auth.BaseAuthFragment
+import kotlinx.android.synthetic.main.fragment_edit_contact.*
 
 class ContactEditFragment : BaseAuthFragment() {
 
