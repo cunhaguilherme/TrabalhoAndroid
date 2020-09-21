@@ -1,10 +1,7 @@
 package br.com.grupofgs.smartguide.contacts.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import br.com.grupofgs.smartguide.contacts.data.Contact
 
 @Dao
@@ -15,6 +12,14 @@ interface ContactDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(names: Contact)
+
+    @Update(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun update(contact: Contact)
+
+    @Delete
+    suspend fun delete(contact: Contact)
+
+
 
     @Query("DELETE FROM contact_table")
     suspend fun deleteAll()
