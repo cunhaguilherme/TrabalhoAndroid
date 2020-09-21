@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel
 import br.com.concrete.canarinho.validator.ValidadorTelefone
 import br.com.grupofgs.smartguide.exceptions.EmailInvalidException
 import br.com.grupofgs.smartguide.exceptions.PasswordInvalidException
-import br.com.gabrielandrepiva.smarguidelib.isValidEmail
 import br.com.grupofgs.smartguide.models.RequestState
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import br.com.gabrielandrepiva.smarguidelib.NewUser
 import br.com.grupofgs.smartguide.R
 import br.com.grupofgs.smartguide.SmartGuidApplication
+import br.com.grupofgs.smartguide.extensions.isValidEmail
 
 class SignUpViewModel : ViewModel() {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()

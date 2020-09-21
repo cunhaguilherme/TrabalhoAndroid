@@ -90,7 +90,7 @@
                 android:layout_marginRight="16dp"
                 android:ems="10"
                 android:inputType="phone"
-                android:maxLength="9" />
+                android:maxLength="10" />
 
 
         </LinearLayout>

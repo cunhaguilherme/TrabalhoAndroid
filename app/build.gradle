@@ -116,7 +116,7 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
     implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.1'
-    implementation 'com.github.GAPvox:SmarGuideLib:5.0.0'
+    implementation 'com.github.GAPvox:SmarGuideLib:1.0.0'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 
     implementation "com.google.android.gms:play-services-maps:17.0.0"

@@ -3,8 +3,7 @@ package br.com.grupofgs.smartguide.extensions
 import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.Fragment
-import br.com.gabrielandrepiva.smarguidelib.hideKeyboard
-import br.com.gabrielandrepiva.smarguidelib.showKeyboard
+
 
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it)
