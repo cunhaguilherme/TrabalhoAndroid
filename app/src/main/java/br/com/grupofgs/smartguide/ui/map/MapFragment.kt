@@ -10,11 +10,13 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.net.Uri
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -53,6 +55,8 @@ class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
     private lateinit var btCallHelp: FloatingActionButton
     private lateinit var btShareMap: FloatingActionButton
 
+    private lateinit var lbMapLocationWarn: TextView
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -85,6 +89,8 @@ class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
         btCallHelp = view.findViewById(R.id.btCallHelp)
         btShareMap = view.findViewById(R.id.btShareMap)
         ivBack = view.findViewById(R.id.ivBack)
+
+        lbMapLocationWarn = view.findViewById(R.id.lbMapLocationWarn)
 
         ivBack.setOnClickListener {
             activity?.onBackPressed()
@@ -126,6 +132,9 @@ class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
         map?.let {
             googleMap = it
         }
+
+        //Inicia com location do MASP
+        myLocation = LatLng(-23.561414, -46.6558819)
 
         locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
         initLocationListener()
@@ -200,6 +209,8 @@ class MapFragment : BaseAuthFragment(), OnMapReadyCallback {
 
                 //Inicia mapa exibindo local atual
                 if (!myLocationFirstTime) {
+                    lbMapLocationWarn.setVisibility(View.GONE);
+
                     centreMapOnLocation(myLocation, getString(R.string.myCurrentLocationTitle), getString(R.string.myCurrentLocationSnippet))
                     myLocationFirstTime = true
                 }

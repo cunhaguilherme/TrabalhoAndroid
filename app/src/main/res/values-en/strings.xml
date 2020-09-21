@@ -60,6 +60,7 @@
     <string name="myCurrentLocationSnippet">My current location</string>
     <string name="fiapLocationSnippet">Our lovely school</string>
     <string name="shareLocationTitle">Share current location with:</string>
+    <string name="lbMapLocationWarn">Waiting for GPS signal for real location</string>
 
     <!-- Tela de Sobre Nos -->
     <string name="name_company">FGs Technology Company © </string>
